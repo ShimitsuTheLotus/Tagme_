@@ -252,7 +252,29 @@ namespace Tagme_
 
         private void TagTextBox_SuggestionRequested(RichSuggestBox sender, SuggestionRequestedEventArgs args)
         {
-            sender.ItemsSource = TagSuggestionList.Where(x => x.TagName.Contains(args.QueryText, StringComparison.OrdinalIgnoreCase));
+            List<Tagme_CustomizedCore.Template.TagInputSuggestionTemplate> coloredSuggestList = TagSuggestionList.Select(
+                x => TagTextBox.Tokens.Any(
+                    y => ((Tagme_CustomizedCore.Template.TagInputSuggestionTemplate)y.Item).ID == x.ID)
+                ? new Tagme_CustomizedCore.Template.TagInputSuggestionTemplate()
+                {
+                    ID = x.ID,
+                    TagName = x.TagName,
+                    SignColor = Application.Current.RequestedTheme
+                    == ApplicationTheme.Light
+                    ? new SolidColorBrush(Windows.UI.Color.FromArgb(0x70, 0x00, 0x00, 0x00))
+                    : new SolidColorBrush(Windows.UI.Color.FromArgb(0x90, 0xFF, 0xFF, 0xFF))
+                }
+                : new Tagme_CustomizedCore.Template.TagInputSuggestionTemplate()
+                {
+                    ID = x.ID,
+                    TagName = x.TagName,
+                    SignColor = Application.Current.RequestedTheme
+                    == ApplicationTheme.Light
+                    ? new SolidColorBrush(Windows.UI.Color.FromArgb(0xFF, 0x00, 0x3E, 0x92))
+                    : new SolidColorBrush(Windows.UI.Color.FromArgb(0xFF, 0x99, 0xEB, 0xFF))
+                }
+                ).ToList();
+            sender.ItemsSource = coloredSuggestList.Where(x => x.TagName.Contains(args.QueryText, StringComparison.OrdinalIgnoreCase));
         }
     }
 }

@@ -14,7 +14,7 @@
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="{Binding ID}" Opacity="0.7" TextAlignment="Center"/>
                 <TextBlock Text=":" Margin="4,0" TextAlignment="Center"/>
-                <TextBlock Text="{Binding TagName}" Foreground="#99EBFF" TextAlignment="Center"/>
+                <TextBlock Text="{Binding TagName}" Foreground="{Binding SignColor}" TextAlignment="Center"/>
             </StackPanel>
         </DataTemplate>
     </Page.Resources>
