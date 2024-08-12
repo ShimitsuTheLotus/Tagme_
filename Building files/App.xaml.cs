@@ -1290,7 +1290,11 @@ namespace Tagme_
                 /// <summary>
                 /// The ID of a stored Tag.
                 /// </summary>
-                public string ID {  get; set; }
+                public string ID { get; set; }
+                /// <summary>
+                /// The color used to let user know whether the tag is used or not
+                /// </summary>
+                public SolidColorBrush SignColor { get; set; } = new SolidColorBrush(Windows.UI.Color.FromArgb(0xFF, 0xFF, 0xFF, 0xFF));
             }
         }
         public static List<Template.DataBaseListViewTemplate> DataBaseListViewSource = new List<Template.DataBaseListViewTemplate>();
