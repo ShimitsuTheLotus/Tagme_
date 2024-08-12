@@ -252,6 +252,7 @@ namespace Tagme_
 
         private void TagTextBox_SuggestionRequested(RichSuggestBox sender, SuggestionRequestedEventArgs args)
         {
+            //Color the tags to let users know whether the tag has been used
             List<Tagme_CustomizedCore.Template.TagInputSuggestionTemplate> coloredSuggestList = TagSuggestionList.Select(
                 x => TagTextBox.Tokens.Any(
                     y => ((Tagme_CustomizedCore.Template.TagInputSuggestionTemplate)y.Item).ID == x.ID)
