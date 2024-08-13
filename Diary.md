@@ -69,3 +69,5 @@
 - I've shared my ideas about RichSuggestBox in Community discussions,.
 ### Aug. 13 2024
 - I found my ideas disappeared, maybe they're deleted. How dissatisfying. I'll consider removing RichSuggestBox from Tagme_, since it can't fit Tagme_.
+- Tried to struggle in C++/CX to create custom control, I'm sure I hate it.
+- When I trying to set x:Uid property for my self-made control, I found something interesting: After you set x:Uid, if there's a TextBlock in the control, it's text will be replaced with the target value.
