@@ -127,12 +127,16 @@
                     </Button>
                 </StackPanel>
                 <!--Add Tag-->
+                <local:TagSuggestBox Text="xwx" Header="xd"
+                                     x:Uid="CreateDataBasePage/InputInfo/DataBaseNameTextBox"
+                                     TextEdited="TagSuggestBox_TextEdited"/>
                 <cucc:RichSuggestBox x:Name="TagTextBox"
                                      Header="tags"
                                      Prefixes="#"
                                      ItemTemplate="{StaticResource TagInputSuggestionTemplate}"
                                      SuggestionChosen="TagTextBox_SuggestionChosen"
-                                     SuggestionRequested="TagTextBox_SuggestionRequested"/>
+                                     SuggestionRequested="TagTextBox_SuggestionRequested"
+                                     TextChanged="TagTextBox_TextChanged"/>
 
                 <!--Due to stability concern, I decided to use other controls instead.-->
                 <!--<cucc:TokenizingTextBox x:Name="TagTextBox"

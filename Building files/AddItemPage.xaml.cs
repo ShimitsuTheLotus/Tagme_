@@ -116,6 +116,7 @@ namespace Tagme_
         //Variables
         public ObservableCollection<string> Tags { get; set; } = new ObservableCollection<string>();
         public List<Tagme_CustomizedCore.Template.TagInputSuggestionTemplate> TagSuggestionList { get; set; } = new List<Tagme_CustomizedCore.Template.TagInputSuggestionTemplate>();
+        public string TagTextBox_OldContent = string.Empty;
 
         public class TagListTemplateItem
         {
@@ -147,11 +148,6 @@ namespace Tagme_
             {
                 args.Cancel = true;
             }
-        }
-
-        private void TagTextBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
-        {
-            //Suggest contents
         }
 
         private void SetTypeFileButton_Click(object sender, RoutedEventArgs e)
@@ -276,6 +272,70 @@ namespace Tagme_
                 }
                 ).ToList();
             sender.ItemsSource = coloredSuggestList.Where(x => x.TagName.Contains(args.QueryText, StringComparison.OrdinalIgnoreCase));
+        }
+
+        private void TagTextBox_TextChanged(RichSuggestBox sender, RoutedEventArgs args)
+        {
+            //Suggest contents
+            string tagTemp = TagTextBox.TextDocument.ToString();
+            List<string> tagsList = new List<string>();
+
+            //Ignore spaces from the beginning and end of the string
+            //Ignore spaces at the beginning
+            if (tagTemp != string.Empty)
+            {
+                int i = 0;
+                for (i = 0; i < tagTemp.Length; i++)
+                {
+                    if (tagTemp[i] == ' ')
+                    {
+                        if (i < tagTemp.Length - 1)
+                        {
+                            i++;
+                        }
+                        else { break; }
+                    }
+                    else { break; }
+                }
+                tagTemp = tagTemp.Substring(i, tagTemp.Length - i);
+            }
+            //Ignore spaces at the end
+            if (tagTemp != string.Empty)
+            {
+                int i = tagTemp.Length - 1;
+                while (i >= 0)
+                {
+                    if (tagTemp[i] == ' ')
+                    {
+                        i--;
+                    }
+                    else { break; }
+                }
+                tagTemp = tagTemp.Substring(0, i + 1);
+            }
+
+            //Get the ending index of the modified tag
+            for (int i = 0; i < Math.Min(TagTextBox_OldContent.Length, tagTemp.Length); i++)
+            {
+                if (TagTextBox_OldContent[i] != tagTemp[i])
+                {
+                    tagTemp = tagTemp.Substring(0, i + 1);
+                    break;
+                }
+            }
+            TagTextBox_OldContent = tagTemp;
+
+            //Get the tag just modified
+
+        }
+
+        private void TagSuggestBox_TextEdited(object sender, EventArgs e)
+        {
+            int i = 0;
+            for (int i1 = 0;i1<2;i1++)
+            {
+                i += 1;
+            }
         }
     }
 }
