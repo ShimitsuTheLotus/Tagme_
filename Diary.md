@@ -73,3 +73,4 @@
 - When I trying to set x:Uid property for my self-made control, I found something interesting: After you set x:Uid, if there's a TextBlock in the control, it's text will be replaced with the target value.
 ### Aug. 14 2024
 - I made the source code of the control a mess. I'll give writting function higher priority.
+- I'm locked out by my Outlock account, I'm trying to get it back.
