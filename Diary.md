@@ -74,3 +74,5 @@
 ### Aug. 14 2024
 - I made the source code of the control a mess. I'll give writting function higher priority.
 - I'm locked out by my Outlock account, I'm trying to get it back.
+### Aug. 15 2024
+- Thanks Junjie Zhu... You're always my **SAVIOUR**...
