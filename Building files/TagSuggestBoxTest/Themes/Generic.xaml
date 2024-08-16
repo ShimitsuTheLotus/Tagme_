@@ -32,4 +32,26 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style TargetType="local:TagItem" >
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:TagItem">
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text=""/>
+                            <AppBarButton x:Name="DeleteButton">
+                                <AppBarButton.Icon>
+                                    <FontIcon Glyph="&#xE8BB;"/>
+                                </AppBarButton.Icon>
+                            </AppBarButton>
+                        </StackPanel>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>

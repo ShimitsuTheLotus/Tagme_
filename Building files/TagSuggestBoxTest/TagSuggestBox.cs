@@ -36,7 +36,7 @@ namespace TagSuggestBoxTest
 
         public string Header
         {
-            get=>(string)GetValue(HeaderProperty);
+            get => (string)GetValue(HeaderProperty);
             set => SetValue(HeaderProperty, value);
         }
 
@@ -49,7 +49,7 @@ namespace TagSuggestBoxTest
 
         public string HeaderFontSize
         {
-            get =>(string)GetValue(HeaderFontSizeProperty);
+            get => (string)GetValue(HeaderFontSizeProperty);
             set => SetValue(HeaderFontSizeProperty, value);
         }
 

@@ -123,6 +123,7 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TagItem.cs" />
     <Compile Include="TagSuggestBox.cs" />
   </ItemGroup>
   <ItemGroup>
