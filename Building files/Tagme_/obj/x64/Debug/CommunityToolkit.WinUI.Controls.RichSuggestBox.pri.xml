@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PriInfo>
+	<ResourceMap name="CommunityToolkit.WinUI.Controls.RichSuggestBox" version="1.0" primary="true">
+		<Qualifiers/>
+		<ResourceMapSubtree name="Files">
+			<ResourceMapSubtree name="CommunityToolkit.WinUI.Controls.RichSuggestBox">
+				<NamedResource name="CommunityToolkit.WinUI.Controls.RichSuggestBox.xr.xml" uri="ms-resource://CommunityToolkit.WinUI.Controls.RichSuggestBox/Files/CommunityToolkit.WinUI.Controls.RichSuggestBox/CommunityToolkit.WinUI.Controls.RichSuggestBox.xr.xml">
+					<Candidate type="Path">
+						<Value>CommunityToolkit.WinUI.Controls.RichSuggestBox\CommunityToolkit.WinUI.Controls.RichSuggestBox.xr.xml</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="RichSuggestBox.xbf" uri="ms-resource://CommunityToolkit.WinUI.Controls.RichSuggestBox/Files/CommunityToolkit.WinUI.Controls.RichSuggestBox/RichSuggestBox.xbf">
+					<Candidate type="EmbeddedData">
+						<Base64Value>[Embedded Binary Data]</Base64Value>
+					</Candidate>
+				</NamedResource>
+				<ResourceMapSubtree name="Themes">
+					<NamedResource name="Generic.xbf" uri="ms-resource://CommunityToolkit.WinUI.Controls.RichSuggestBox/Files/CommunityToolkit.WinUI.Controls.RichSuggestBox/Themes/Generic.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+				</ResourceMapSubtree>
+			</ResourceMapSubtree>
+		</ResourceMapSubtree>
+	</ResourceMap>
+</PriInfo>
