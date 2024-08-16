@@ -3,6 +3,10 @@
 ################################################################################
 
 /.vs
-/Building files/.vs
-/Building files/bin
-/Building files/obj
+/Building files/Tagme_/.vs
+/Building files/Tagme_/bin
+/Building files/Tagme_/obj
+
+/Building files/TagSuggestBoxTest/.vs
+/Building files/TagSuggestBoxTest/bin
+/Building files/TagSuggestBoxTest/obj
