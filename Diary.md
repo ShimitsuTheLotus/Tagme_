@@ -65,9 +65,14 @@
 - I don't know what happend, my local repository suddenly became strange and lost many changes haven't updated. At least I remember what I've changed... Maybe?
 - Wow I haven't thought a repo not published and never be adverticed could be this popular!
 - ![image](https://github.com/user-attachments/assets/df266bd6-d5ca-43be-b4e4-6cc90e29748c)
-- This **ONE SO MANY PEOPLE** really loves my code a lot! BUt, this one a lot people, I don't like you.
+- This **ONE SO MANY PEOPLE** really loves my code a lot! But, this one a lot people, I don't like you.
 - I've shared my ideas about RichSuggestBox in Community discussions,.
 ### Aug. 13 2024
 - I found my ideas disappeared, maybe they're deleted. How dissatisfying. I'll consider removing RichSuggestBox from Tagme_, since it can't fit Tagme_.
 - Tried to struggle in C++/CX to create custom control, I'm sure I hate it.
 - When I trying to set x:Uid property for my self-made control, I found something interesting: After you set x:Uid, if there's a TextBlock in the control, it's text will be replaced with the target value.
+### Aug. 14 2024
+- I made the source code of the control a mess. I'll give writting function higher priority.
+- I'm locked out by my Outlock account, I'm trying to get it back.
+### Aug. 15 2024
+- Thanks Junjie Zhu... You're always my **SAVIOUR**...
