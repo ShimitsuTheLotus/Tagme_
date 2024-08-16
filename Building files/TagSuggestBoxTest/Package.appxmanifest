@@ -7,11 +7,11 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="dec8d53b-8e78-47bd-97dc-548202af782e"
+    Name="6667302b-87e3-47f8-9dce-8edbed11ed8d"
     Publisher="CN=ChiSu"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="dec8d53b-8e78-47bd-97dc-548202af782e" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="6667302b-87e3-47f8-9dce-8edbed11ed8d" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>TagSuggestBoxTest</DisplayName>

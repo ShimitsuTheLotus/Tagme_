@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{3E6FF5F7-44B5-4D0E-BE3D-02B859F7F8F3}</ProjectGuid>
+    <ProjectGuid>{3B6FC04D-6E5D-493A-8FFD-4CC79FAFDF89}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TagSuggestBoxTest</RootNamespace>
