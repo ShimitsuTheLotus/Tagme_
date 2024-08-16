@@ -1,0 +1,35 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TagSuggestBoxTest">
+
+    <Style TargetType="local:TagSuggestBox" >
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:TagSuggestBox">
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
+                        <StackPanel>
+                            <TextBlock Text="{TemplateBinding Header}"
+                                       FontSize="{TemplateBinding HeaderFontSize}"/>
+                            <AutoSuggestBox x:Name="InputBox"
+                                            ItemsSource="{TemplateBinding ItemsSource}">
+                                <AutoSuggestBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="{Binding ID}" Foreground="Yellow"/>
+                                            <TextBlock Text=":" Margin="4,0"/>
+                                            <TextBlock Text="{Binding TagName}" Foreground="White"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </AutoSuggestBox.ItemTemplate>
+                            </AutoSuggestBox>
+                        </StackPanel>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

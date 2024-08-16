@@ -8,7 +8,9 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
-
-    </Grid>
+    <StackPanel>
+        <TextBlock  Text="TextBlock"/>
+        <local:TagSuggestBox x:Name="SuggestBox" Header="Sample"
+                             TextChanged="TagSuggestBox_TextChanged"/>
+    </StackPanel>
 </Page>

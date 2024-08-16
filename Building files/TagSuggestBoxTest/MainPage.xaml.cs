@@ -26,5 +26,16 @@ namespace TagSuggestBoxTest
         {
             this.InitializeComponent();
         }
+
+
+        private void TagSuggestBox_TextChanged(object sender, AutoSuggestBoxTextChangedEventArgs e)
+        {
+            if (e.Reason == AutoSuggestionBoxTextChangeReason.UserInput)
+            {
+                List<TagSuggestBox.SuggestItemTemplate> list = new List<TagSuggestBox.SuggestItemTemplate>();
+                list.Add(new TagSuggestBox.SuggestItemTemplate() { ID = "1", TagName = "tag1" });
+                SuggestBox.ItemsSource = list;
+            }
+        }
     }
 }
