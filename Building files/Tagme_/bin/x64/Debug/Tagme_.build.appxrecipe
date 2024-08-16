@@ -10,22 +10,22 @@
     <PackageArchitecture>x64</PackageArchitecture>
     <PackageIdentityName>6d25ca75-9793-463f-807d-3e15fd6561e3</PackageIdentityName>
     <PackageIdentityPublisher>CN=ChiSu</PackageIdentityPublisher>
-    <IntermediateOutputPath>E:\Repos\ShimizuTheLotus\Tagme_\Building files\obj\x64\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>E:\Repos\ShimizuTheLotus\Tagme_\Building files\Tagme_\obj\x64\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType></RemoteDeploymentType>
     <PackageRegistrationPath></PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>E:\Repos\ShimizuTheLotus\Tagme_\Building files\bin\x64\Debug\AppX</LayoutDir>
+    <LayoutDir>E:\Repos\ShimizuTheLotus\Tagme_\Building files\Tagme_\bin\x64\Debug\AppX</LayoutDir>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\bin\x64\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Tagme_\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\bin\x64\Debug\Tagme_.exe">
+    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Tagme_\bin\x64\Debug\Tagme_.exe">
       <PackagePath>entrypoint\Tagme_.exe</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ChiSu\.nuget\packages\microsoft.web.webview2\1.0.1264.42\build\..\runtimes\win-x64\native_uap\Microsoft.Web.WebView2.Core.dll">
@@ -85,61 +85,61 @@
     <AppxPackagedFile Include="C:\Users\ChiSu\.nuget\packages\communitytoolkit.uwp.controls.tokenizingtextbox\8.0.240109\lib\uap10.0.17763\CommunityToolkit.WinUI.Controls.TokenizingTextBox\CommunityToolkit.WinUI.Controls.TokenizingTextBox.xr.xml">
       <PackagePath>CommunityToolkit.WinUI.Controls.TokenizingTextBox\CommunityToolkit.WinUI.Controls.TokenizingTextBox.xr.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Tagme_\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Tagme_\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Tagme_\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Tagme_\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Tagme_\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Tagme_\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Tagme_\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Tagme_\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\bin\x64\Debug\Tagme_.xr.xml">
+    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Tagme_\bin\x64\Debug\Tagme_.xr.xml">
       <PackagePath>Tagme_.xr.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\bin\x64\Debug\App.xbf">
+    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Tagme_\bin\x64\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\bin\x64\Debug\AddItemPage.xbf">
+    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Tagme_\bin\x64\Debug\AddItemPage.xbf">
       <PackagePath>AddItemPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\bin\x64\Debug\CreateDataBasePage.xbf">
+    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Tagme_\bin\x64\Debug\CreateDataBasePage.xbf">
       <PackagePath>CreateDataBasePage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\bin\x64\Debug\DataBaseDetailPage.xbf">
+    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Tagme_\bin\x64\Debug\DataBaseDetailPage.xbf">
       <PackagePath>DataBaseDetailPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\bin\x64\Debug\DataBaseListPage.xbf">
+    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Tagme_\bin\x64\Debug\DataBaseListPage.xbf">
       <PackagePath>DataBaseListPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\bin\x64\Debug\DataBaseViewPage.xbf">
+    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Tagme_\bin\x64\Debug\DataBaseViewPage.xbf">
       <PackagePath>DataBaseViewPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\bin\x64\Debug\MainPage.xbf">
+    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Tagme_\bin\x64\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\bin\x64\Debug\Themes\Generic.xbf">
+    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Tagme_\bin\x64\Debug\Themes\Generic.xbf">
       <PackagePath>Themes\Generic.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.UniversalCRT.Debug\10.0.22621.0\\redist\Debug\X64\ucrtbased.dll">
@@ -151,10 +151,10 @@
     <AppxPackagedFile Include="C:\Users\ChiSu\.nuget\packages\microsoft.ui.xaml\2.8.6\buildTransitive\..\lib\uap10.0\Microsoft.UI.Xaml.winmd">
       <PackagePath>Microsoft.UI.Xaml.winmd</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\bin\x64\Debug\resources.pri">
+    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Tagme_\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\bin\x64\Debug\Core\Tagme_.exe">
+    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Tagme_\bin\x64\Debug\Core\Tagme_.exe">
       <PackagePath>Tagme_.exe</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>

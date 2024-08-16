@@ -10,7 +10,7 @@
     <PackageArchitecture>x64</PackageArchitecture>
     <PackageIdentityName>6d25ca75-9793-463f-807d-3e15fd6561e3</PackageIdentityName>
     <PackageIdentityPublisher>CN=ChiSu</PackageIdentityPublisher>
-    <IntermediateOutputPath>E:\Repos\ShimizuTheLotus\Tagme_\Building files\obj\x64\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>E:\Repos\ShimizuTheLotus\Tagme_\Building files\Tagme_\obj\x64\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
@@ -18,7 +18,7 @@
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>E:\Repos\ShimizuTheLotus\Tagme_\Building files\bin\x64\Debug\AppX</LayoutDir>
+    <LayoutDir>E:\Repos\ShimizuTheLotus\Tagme_\Building files\Tagme_\bin\x64\Debug\AppX</LayoutDir>
     <RegisteredManifestChecksum>A217C82DE635072D8F38ADA704FE97807FCBA76016F40F080B2BFE18F3C3DF58</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>6d25ca75-9793-463f-807d-3e15fd6561e3_1.0.0.0_x64__2jmqasfeqp45w</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>6d25ca75-9793-463f-807d-3e15fd6561e3_2jmqasfeqp45w!App</RegisteredUserModeAppID>
@@ -27,16 +27,16 @@
     <RegisteredVersion>1.0.0.0</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\bin\x64\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Tagme_\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2024-08-16T01:54:41.823</Modified>
+      <Modified>2024-08-16T02:33:41.281</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\bin\x64\Debug\Tagme_.exe">
+    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Tagme_\bin\x64\Debug\Tagme_.exe">
       <PackagePath>entrypoint\Tagme_.exe</PackagePath>
-      <Modified>2024-08-16T01:54:40.462</Modified>
+      <Modified>2024-08-16T02:33:39.560</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ChiSu\.nuget\packages\microsoft.web.webview2\1.0.1264.42\build\..\runtimes\win-x64\native_uap\Microsoft.Web.WebView2.Core.dll">
       <PackagePath>Microsoft.Web.WebView2.Core.dll</PackagePath>
@@ -114,79 +114,79 @@
       <PackagePath>CommunityToolkit.WinUI.Controls.TokenizingTextBox\CommunityToolkit.WinUI.Controls.TokenizingTextBox.xr.xml</PackagePath>
       <Modified>2024-01-09T22:49:36.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Tagme_\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
       <Modified>2024-08-12T02:17:07.843</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Tagme_\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
       <Modified>2024-08-12T02:17:07.839</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Tagme_\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2024-08-12T02:17:07.840</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Tagme_\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2024-08-12T02:17:07.840</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Tagme_\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2024-08-12T02:17:07.840</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Tagme_\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2024-08-12T02:17:07.840</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Tagme_\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2024-08-12T02:17:07.841</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Tagme_\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2024-08-12T02:17:07.841</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\bin\x64\Debug\Tagme_.xr.xml">
+    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Tagme_\bin\x64\Debug\Tagme_.xr.xml">
       <PackagePath>Tagme_.xr.xml</PackagePath>
       <Modified>2024-08-16T01:49:49.982</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\bin\x64\Debug\App.xbf">
+    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Tagme_\bin\x64\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2024-08-16T01:54:40.396</Modified>
+      <Modified>2024-08-16T02:33:39.472</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\bin\x64\Debug\AddItemPage.xbf">
+    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Tagme_\bin\x64\Debug\AddItemPage.xbf">
       <PackagePath>AddItemPage.xbf</PackagePath>
-      <Modified>2024-08-16T01:54:40.387</Modified>
+      <Modified>2024-08-16T02:33:39.464</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\bin\x64\Debug\CreateDataBasePage.xbf">
+    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Tagme_\bin\x64\Debug\CreateDataBasePage.xbf">
       <PackagePath>CreateDataBasePage.xbf</PackagePath>
-      <Modified>2024-08-16T01:54:40.389</Modified>
+      <Modified>2024-08-16T02:33:39.465</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\bin\x64\Debug\DataBaseDetailPage.xbf">
+    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Tagme_\bin\x64\Debug\DataBaseDetailPage.xbf">
       <PackagePath>DataBaseDetailPage.xbf</PackagePath>
-      <Modified>2024-08-16T01:54:40.396</Modified>
+      <Modified>2024-08-16T02:33:39.472</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\bin\x64\Debug\DataBaseListPage.xbf">
+    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Tagme_\bin\x64\Debug\DataBaseListPage.xbf">
       <PackagePath>DataBaseListPage.xbf</PackagePath>
-      <Modified>2024-08-16T01:54:40.392</Modified>
+      <Modified>2024-08-16T02:33:39.469</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\bin\x64\Debug\DataBaseViewPage.xbf">
+    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Tagme_\bin\x64\Debug\DataBaseViewPage.xbf">
       <PackagePath>DataBaseViewPage.xbf</PackagePath>
-      <Modified>2024-08-16T01:54:40.394</Modified>
+      <Modified>2024-08-16T02:33:39.470</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\bin\x64\Debug\MainPage.xbf">
+    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Tagme_\bin\x64\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2024-08-16T01:54:40.396</Modified>
+      <Modified>2024-08-16T02:33:39.473</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\bin\x64\Debug\Themes\Generic.xbf">
+    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Tagme_\bin\x64\Debug\Themes\Generic.xbf">
       <PackagePath>Themes\Generic.xbf</PackagePath>
-      <Modified>2024-08-16T01:54:40.396</Modified>
+      <Modified>2024-08-16T02:33:39.472</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.UniversalCRT.Debug\10.0.22621.0\\redist\Debug\X64\ucrtbased.dll">
       <PackagePath>ucrtbased.dll</PackagePath>
@@ -200,13 +200,13 @@
       <PackagePath>Microsoft.UI.Xaml.winmd</PackagePath>
       <Modified>2023-10-30T22:14:14.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\bin\x64\Debug\resources.pri">
+    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Tagme_\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2024-08-13T14:12:33.453</Modified>
+      <Modified>2024-08-16T02:33:40.137</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\bin\x64\Debug\Core\Tagme_.exe">
+    <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\Tagme_\bin\x64\Debug\Core\Tagme_.exe">
       <PackagePath>Tagme_.exe</PackagePath>
-      <Modified>2024-08-16T01:54:41.818</Modified>
+      <Modified>2024-08-16T02:33:41.275</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

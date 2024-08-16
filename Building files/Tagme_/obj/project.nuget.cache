@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "izvMD4zbDEJRfkzJ6LehGqHK4ux0j5nCadEn4PMiFzr5UlXza4rTpI/JNbqiykFMyVsYnMYJZofOs2PZ4NEk7w==",
+  "dgSpecHash": "OPqmCFQrQCY5mEj0NpZq2uWHFjbH2cuxEjSL54j5HgOEw/ivFnUeVljzS0IFaMxKnj16DUL0uzLo3r28tuKqEw==",
   "success": true,
-  "projectFilePath": "E:\\Repos\\ShimizuTheLotus\\Tagme_\\Building files\\Tagme_.csproj",
+  "projectFilePath": "E:\\Repos\\ShimizuTheLotus\\Tagme_\\Building files\\Tagme_\\Tagme_.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ChiSu\\.nuget\\packages\\communitytoolkit.common\\8.2.1\\communitytoolkit.common.8.2.1.nupkg.sha512",
     "C:\\Users\\ChiSu\\.nuget\\packages\\communitytoolkit.uwp.controls.primitives\\8.0.240109\\communitytoolkit.uwp.controls.primitives.8.0.240109.nupkg.sha512",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Repos\\ShimizuTheLotus\\Tagme_\\Building files\\Tagme_.csproj": {}
+    "E:\\Repos\\ShimizuTheLotus\\Tagme_\\Building files\\Tagme_\\Tagme_.csproj": {}
   },
   "projects": {
-    "E:\\Repos\\ShimizuTheLotus\\Tagme_\\Building files\\Tagme_.csproj": {
+    "E:\\Repos\\ShimizuTheLotus\\Tagme_\\Building files\\Tagme_\\Tagme_.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Repos\\ShimizuTheLotus\\Tagme_\\Building files\\Tagme_.csproj",
+        "projectUniqueName": "E:\\Repos\\ShimizuTheLotus\\Tagme_\\Building files\\Tagme_\\Tagme_.csproj",
         "projectName": "Tagme_",
-        "projectPath": "E:\\Repos\\ShimizuTheLotus\\Tagme_\\Building files\\Tagme_.csproj",
+        "projectPath": "E:\\Repos\\ShimizuTheLotus\\Tagme_\\Building files\\Tagme_\\Tagme_.csproj",
         "packagesPath": "C:\\Users\\ChiSu\\.nuget\\packages\\",
-        "outputPath": "E:\\Repos\\ShimizuTheLotus\\Tagme_\\Building files\\obj\\",
+        "outputPath": "E:\\Repos\\ShimizuTheLotus\\Tagme_\\Building files\\Tagme_\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [

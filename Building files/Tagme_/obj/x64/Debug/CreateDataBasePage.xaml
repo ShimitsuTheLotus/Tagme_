@@ -1,0 +1,142 @@
+﻿<Page
+    x:Class="Tagme_.CreateDataBasePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Tagme_"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="Transparent">
+    <Page.Resources>
+        <ThemeShadow x:ConnectionId='2' x:Name="PageSharedShadow"/>
+    </Page.Resources>
+    <RelativePanel x:ConnectionId='3' x:Name="BasePanel"
+                   Background="Transparent">
+        <ScrollViewer RelativePanel.AlignTopWithPanel="True"
+                      RelativePanel.Above="CreateButtonPanel">
+            <!--ScrollViewerPanel-->
+            <StackPanel>
+                <StackPanel.ChildrenTransitions>
+                    <TransitionCollection>
+                        <RepositionThemeTransition/>
+                    </TransitionCollection>
+                </StackPanel.ChildrenTransitions>
+                <StackPanel x:ConnectionId='7' x:Name="EditInfoPanel"
+                            Orientation="Horizontal">
+                    <StackPanel.ChildrenTransitions>
+                        <TransitionCollection>
+                            <RepositionThemeTransition/>
+                        </TransitionCollection>
+                    </StackPanel.ChildrenTransitions>
+                    <RelativePanel x:ConnectionId='15' x:Name="DataBaseCoverPanel"
+                                   CornerRadius="8"
+                                   Margin="32,16,16,8"
+                                   Height="256"
+                                   Width="256"
+                                   Shadow="{StaticResource PageSharedShadow}">
+                        <Image x:ConnectionId='22' x:Name="DataBaseCoverImage"
+                               Height="256"
+                               Width="256"
+                               Stretch="UniformToFill"
+                               Source="Assets\Square150x150Logo.scale-200.png"/>
+                    </RelativePanel>
+                    <StackPanel x:ConnectionId='16' x:Name="MovableSettingsPanel">
+                        <StackPanel.ChildrenTransitions>
+                            <TransitionCollection>
+                                <EntranceThemeTransition IsStaggeringEnabled="True" />
+                            </TransitionCollection>
+                        </StackPanel.ChildrenTransitions>
+                        <TextBox x:ConnectionId='17' x:Name="DataBaseNameTextBox"
+                                 x:Uid="CreateDataBasePage/InputInfo/DataBaseNameTextBox"
+                                 MinWidth="260"
+                                 Margin="16,8,8,8"
+                                 Header="database name"
+                                                                              />
+                        <TextBlock x:ConnectionId='18' x:Name="CoverSettingsTextBlock"
+                                   x:Uid="CreateDataBasePage/InputInfo/CoverSettingsTextBlock"
+                                   Margin="16,8,8,8"
+                                   Text="cover"/>
+                        <Button x:ConnectionId='19' x:Name="DataBaseCoverChangeButton"
+                                x:Uid="CreateDataBasePage/InputInfo/DataBaseCoverChangeButton"
+                                Margin="16,8,8,8"
+                                Content="change cover"
+                                                                       />
+                        <Button x:ConnectionId='20' x:Name="DataBaseCoverUseDefaultButton"
+                                x:Uid="CreateDataBasePage/InputInfo/DataBaseCoverUseDefaultButton"
+                                Margin="16,8,8,8"
+                                Content="use default"
+                                                                           />
+                        <TextBox x:ConnectionId='21' x:Name="DataBaseDescriptionTextBox"
+                                 x:Uid="CreateDataBasePage/InputInfo/DataBaseDescriptionTextBox"
+                                 Margin="16,8,8,8"
+                                 Header="description"
+                                 AcceptsReturn="True"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel x:ConnectionId='8' x:Name="PropertyPanel" Margin="16">
+                    <StackPanel.ChildrenTransitions>
+                        <TransitionCollection>
+                            <EntranceThemeTransition IsStaggeringEnabled="True"/>
+                        </TransitionCollection>
+                    </StackPanel.ChildrenTransitions>
+                    <TextBlock x:ConnectionId='9' x:Name="PropertyList_Title"
+                               x:Uid="CreateDataBasePage/PropertyList/Title"
+                               Text="Property list" 
+                               Style="{StaticResource TitleTextBlockStyle}"/>
+                    <StackPanel x:ConnectionId='10' x:Name="PropertyList_DataBaseNamePanel">
+                        <TextBlock x:ConnectionId='14' x:Name="PropertyList_DataBaseName"
+                               x:Uid="CreateDataBasePage/PropertyList/DataBaseName"
+                               Text="Database name:"
+                               Style="{StaticResource BodyStrongTextBlockStyle}"/>
+                    </StackPanel>
+                    <TextBlock x:ConnectionId='11' x:Name="PropertyList_DataBaseCoverSourcePath"
+                               x:Uid="CreateDataBasePage/PropertyList/DataBaseCoverSourcePath"
+                               Text="Database cover source path:" 
+                               Style="{StaticResource BodyStrongTextBlockStyle}"/>
+                    <TextBlock x:ConnectionId='12' x:Name="PropertyList_Tagme_DataBaseVersion" 
+                               x:Uid="CreateDataBasePage/PropertyList/Tagme_DataBaseVersion"
+                               Text="Tagme_ database version:"
+                               Style="{StaticResource BodyStrongTextBlockStyle}"/>
+                    <TextBlock x:ConnectionId='13' x:Name="PropertyList_DataBaseFilePath"
+                               x:Uid="CreateDataBasePage/PropertyList/DataBaseFilePath"
+                               Style="{StaticResource BodyStrongTextBlockStyle}"/>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+        <!--Main button panel-->
+        <RelativePanel x:ConnectionId='4' x:Name="CreateButtonPanel"
+                       Height="64"
+                       RelativePanel.AlignBottomWithPanel="True"
+                       RelativePanel.AlignLeftWithPanel="True"
+                       RelativePanel.AlignRightWithPanel="True"
+                       Shadow="{StaticResource PageSharedShadow}">
+            <Grid RelativePanel.AlignLeftWithPanel="True"
+                  RelativePanel.AlignRightWithPanel="True"
+                  RelativePanel.AlignTopWithPanel="True"
+                  RelativePanel.AlignBottomWithPanel="True">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <!--Main cancel button-->
+                <Button x:ConnectionId='5' x:Name="CancelCreateDataBaseButton"
+                        x:Uid="CreateDataBasePage/CreateOrNotButtonPanel/CancelButton"
+                        Content="cancel"
+                        Grid.Column="0" 
+                        Margin="16 0 8 0"
+                        HorizontalAlignment="Stretch"
+                                                                />
+                <!--Main create button-->
+                <Button x:ConnectionId='6' x:Name="CreateDataBaseButton" 
+                        x:Uid="CreateDataBasePage/CreateOrNotButtonPanel/CreateButton"
+                        Content="create" 
+                        Style="{StaticResource AccentButtonStyle}" 
+                        Grid.Column="1" 
+                        Margin="8 0 16 0" 
+                        HorizontalAlignment="Stretch"
+                                                          />
+            </Grid>
+        </RelativePanel>
+    </RelativePanel>
+</Page>
+

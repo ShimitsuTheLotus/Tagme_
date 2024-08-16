@@ -1,0 +1,130 @@
+﻿<Page
+    x:Class="Tagme_.DataBaseViewPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    mc:Ignorable="d"
+    Background="Transparent">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Light">
+                    <SolidColorBrush x:Key="Tagme_DefaultThemeColor" Color="#8EFFFFFF"/>
+                </ResourceDictionary>
+                <ResourceDictionary x:Key="Dark">
+                    <SolidColorBrush x:Key="Tagme_DefaultThemeColor" Color="#15FFFFFF"/>
+                </ResourceDictionary>
+                <ResourceDictionary x:Key="HighContrast">
+                    <SolidColorBrush x:Key="Tagme_DefaultThemeColor" Color="Black"/>
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+            <Style TargetType="RelativePanel" x:Key="Tagme_DefaultPanelBackground">
+                <Setter Property="Background" Value="{ThemeResource Tagme_DefaultThemeColor}"/>
+            </Style>
+            <Style TargetType="Button" x:Key="Tagme_DefaultPanelBackgroundForButton">
+                <Setter Property="Background" Value="{ThemeResource Tagme_DefaultThemeColor}"/>
+            </Style>
+            <ThemeShadow x:ConnectionId='2' x:Name="PageSharedShadow"/>
+            <DataTemplate x:Key="DataBaseListViewTemplate">
+                <RelativePanel CornerRadius="16"
+                               Margin="0,8,0,16"
+                               Style="{ThemeResource Tagme_DefaultPanelBackground}"
+                               Shadow="{StaticResource PageSharedShadow}">
+                    <!--The value of a ItemImage is nullable, consider using default image when the value is null-->
+                    <Image Name ="ItemImage"
+                           Height="80"
+                           Width="80"
+                           Margin="16"
+                           RelativePanel.AlignTopWithPanel="True"
+                           RelativePanel.AlignLeftWithPanel="True"
+                           Stretch="UniformToFill"
+                           Source="{Binding ItemNullableImage}"/>
+                    <TextBlock Name="ItemText"
+                       Text="{Binding DataBaseTitle}"
+                       Margin="8"
+                       RelativePanel.RightOf="ItemImage"
+                       Style="{StaticResource SubtitleTextBlockStyle}"/>
+                </RelativePanel>
+            </DataTemplate>
+        </ResourceDictionary>
+    </Page.Resources>
+    <RelativePanel x:ConnectionId='6' x:Name="PagePanel">
+        <Button x:ConnectionId='7' x:Name="OptionBarCurrentDataBaseDetailPageButton"
+                                                                      
+                RelativePanel.AlignTopWithPanel="True"
+                RelativePanel.AlignLeftWithPanel="True"
+                Height="100" Width="110"
+                CornerRadius="0,0,8,0">
+            <Button.Content>
+                <Image x:ConnectionId='22' x:Name="OptionBarCurrentDataBaseDetailPageButtonImage"
+                       Height="80"
+                       Width="80"
+                       Stretch="UniformToFill"/>
+            </Button.Content>
+        </Button>
+        <RelativePanel x:ConnectionId='8' x:Name="OperationPanel"
+                       RelativePanel.AlignRightWithPanel="True"
+                       RelativePanel.RightOf="OptionBarCurrentDataBaseDetailPageButton"
+                       RelativePanel.AlignTopWithPanel="True"
+                       Height="48"
+                       Style="{ThemeResource Tagme_DefaultPanelBackground}">
+            <CommandBar x:ConnectionId='12' x:Name="OptionBarBrowsePart"
+                        DefaultLabelPosition="Right"
+                        Margin="4,4,0,0">
+                <AppBarButton x:ConnectionId='20' x:Name="OptionBarSortAppBarButton"
+                              Icon="Sort" Label="sort"></AppBarButton>
+                <AppBarButton x:ConnectionId='21' x:Name="OptionBarViewModeAppBarButton"
+                              Icon="PreviewLink" Label="view mode">
+                </AppBarButton>
+            </CommandBar>
+            <CommandBar x:ConnectionId='13' x:Name="OptionBarCommandBarSeparator1"
+                        RelativePanel.RightOf="OptionBarBrowsePart"
+                        Margin="4,4,0,0">
+                <AppBarSeparator/>
+            </CommandBar>
+            <CommandBar x:ConnectionId='14' x:Name="OptionBarCommandBarEditPart"
+                        DefaultLabelPosition="Right"
+                        RelativePanel.RightOf="OptionBarCommandBarSeparator1"
+                        Margin="4,4,0,0">
+                <AppBarButton x:ConnectionId='15' x:Name="OptionBarEditAppBarButton"
+                              Icon="Edit" Label="edit">
+                </AppBarButton>
+                <AppBarButton x:ConnectionId='16' x:Name="OptionBarAddItemAppBarButton"
+                              Icon="Add" Label="add item"
+                                                                        >
+                </AppBarButton>
+                <AppBarButton x:ConnectionId='17' x:Name="OptionBarMultiSelectAppBarButton"
+                              Label="multi-select">
+                    <AppBarButton.Content>
+                        <FontIcon Glyph="&#xE762;"/>
+                    </AppBarButton.Content>
+                </AppBarButton>
+                <AppBarButton x:ConnectionId='18' x:Name="OptionBarMoveAppBarButton"
+                              Icon="MoveToFolder" Label="move">
+                </AppBarButton>
+                <AppBarButton x:ConnectionId='19' x:Name="OptionBarCopyAppBarButton"
+                              Icon="Copy" Label="copy">
+                </AppBarButton>
+            </CommandBar>
+
+        </RelativePanel>
+        <RelativePanel x:ConnectionId='9' x:Name="RouteBarPanel"
+                       RelativePanel.RightOf="OptionBarCurrentDataBaseDetailPageButton"
+                       RelativePanel.AlignRightWithPanel="True"
+                       RelativePanel.Below="OperationPanel"
+                       Style="{ThemeResource Tagme_DefaultPanelBackground}"
+                       Height="48">
+            <muxc:BreadcrumbBar x:ConnectionId='11' x:Name="RouteBar"
+                                RelativePanel.AlignVerticalCenterWithPanel="True"
+                                Margin="8"/>
+        </RelativePanel>
+        <ListView x:ConnectionId='10' x:Name="DataBaseCurrentFolderListView"
+                  RelativePanel.Below="RouteBarPanel">
+
+        </ListView>
+    </RelativePanel>
+</Page>
+
