@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -42,6 +43,20 @@ namespace TagSuggestBoxTest
         {
             HelperBlock.Text = WrapPanel.ActualWidth.ToString();
             new Grid().Children.Clear();
+        }
+
+        private void TestButton_Click(object sender, RoutedEventArgs e)
+        {
+            AutoWrapPanel autoWrapPanel = WrapPanel;
+
+            Button button = new Button
+            {
+                Height = new Random().Next(20, 50),
+                Width = new Random().Next(50, 100),
+                Background = new SolidColorBrush(Windows.UI.Color.FromArgb(0xFF, 0x91, 0xCA, 0xE8)),
+            };
+
+            autoWrapPanel.Children.Add(button);
         }
     }
 }

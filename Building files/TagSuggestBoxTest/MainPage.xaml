@@ -13,6 +13,8 @@
         <local:TagSuggestBox x:Name="SuggestBox" Header="Sample"
                              TextChanged="TagSuggestBox_TextChanged"
                              SizeChanged="SuggestBox_SizeChanged"/>
-        <local:AutoWrapPanel x:Name="WrapPanel"/>
+        <Button x:Name="TestButton" Content="Add" Click="TestButton_Click"/>
+        <local:AutoWrapPanel x:Name="WrapPanel" Background="Red"
+                             Height="2000"/>
     </StackPanel>
 </Page>
