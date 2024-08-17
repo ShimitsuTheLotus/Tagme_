@@ -214,46 +214,6 @@ namespace TagSuggestBoxTest
                     {
                         Canvas.SetTop(newChild, _maxRowHeightList.Sum() + ((ulong)maxRowIndex + 1) * _verticalItemSpacing);
                     }
-                    ////not used
-                    //switch (ChildrenVerticalAlignment)
-                    //{
-                    //    case _childrenVerticalAlignment.Top:
-                    //        {
-                    //            if (maxRowIndex == null)
-                    //            {
-                    //                Canvas.SetTop(newChild, _verticalItemSpacing);
-                    //            }
-                    //            else
-                    //            {
-                    //                Canvas.SetTop(newChild, _maxRowHeightList.Sum() + ((ulong)maxRowIndex + 1) * _verticalItemSpacing);
-                    //            }
-                    //        }
-                    //        break;
-                    //    case _childrenVerticalAlignment.Bottom:
-                    //        {
-                    //            if (maxRowIndex == null)
-                    //            {
-                    //                Canvas.SetTop(newChild, _verticalItemSpacing);
-                    //            }
-                    //            else
-                    //            {
-                    //                Canvas.SetTop(newChild, _maxRowHeightList.Sum() + ((ulong)maxRowIndex + 1) * _verticalItemSpacing);
-                    //            }
-                    //        }
-                    //        break;
-                    //    case _childrenVerticalAlignment.Center:
-                    //        {
-                    //            if (maxRowIndex == null)
-                    //            {
-                    //                Canvas.SetTop(newChild, _verticalItemSpacing);
-                    //            }
-                    //            else
-                    //            {
-                    //                Canvas.SetTop(newChild, _maxRowHeightList.Sum() + ((ulong)maxRowIndex + 1) * _verticalItemSpacing);
-                    //            }
-                    //        }
-                    //        break;
-                    //}
 
                     //Add item
                     _childrenList.Add((maxRowIndex == null ? (ulong)0 : (ulong)maxRowIndex + 1, 0, newChild));
@@ -292,16 +252,57 @@ namespace TagSuggestBoxTest
 
                         _childrenList.Add((maxRowIndex == null ? (ulong)0 : (ulong)maxRowIndex + 1, 0, newChild));
                     }
-                    //Add in this eow
+                    //Add in this row
                     else
                     {
-                        ulong maxColumnIndex = 0;
-
-                        foreach (var item in _childrenList)
+                        //Set left position
+                        Canvas.SetLeft(newChild, maxRowIndex == null ? (ulong)_horizontalItemSpacing : (ulong)(_childrenList.Where(x => x.Item1 == maxRowIndex).Count() + 1) * _horizontalItemSpacing);
+                        //Set top position, the position will be infected by the ChildrenVerticalAlignment
+                        switch (ChildrenVerticalAlignment)
                         {
-                            maxColumnIndex = maxColumnIndex> item.Item2 ? item.Item2 : maxColumnIndex;
+                            case _childrenVerticalAlignment.Top:
+                                {
+                                    if (maxRowIndex == null)
+                                    {
+                                        Canvas.SetTop(newChild, _verticalItemSpacing);
+                                    }
+                                    else
+                                    {
+                                        Canvas.SetTop(newChild, _maxRowHeightList.Sum() + ((ulong)maxRowIndex + 1) * _verticalItemSpacing);
+                                    }
+                                }
+                                break;
+                            case _childrenVerticalAlignment.Bottom:
+                                {
+                                    if (maxRowIndex == null)
+                                    {
+                                        Canvas.SetTop(newChild, _verticalItemSpacing);
+                                    }
+                                    else
+                                    {
+                                        Canvas.SetTop(newChild, _maxRowHeightList.Sum() + ((ulong)maxRowIndex + 1) * _verticalItemSpacing 
+                                            + _maxRowHeightList[_maxRowHeightList.Count - 1] - newChild.DesiredSize.Height);
+                                    }
+                                }
+                                break;
+                            case _childrenVerticalAlignment.Center:
+                                {
+                                    if (maxRowIndex == null)
+                                    {
+                                        Canvas.SetTop(newChild, _verticalItemSpacing);
+                                    }
+                                    else
+                                    {
+                                        Canvas.SetTop(newChild, _maxRowHeightList.Sum() + ((ulong)maxRowIndex + 1) * _verticalItemSpacing
+                                            + (ulong)0.5*(_maxRowHeightList[_maxRowHeightList.Count - 1] - newChild.DesiredSize.Height));
+                                    }
+                                }
+                                break;
                         }
-                        _childrenList.Add((maxRowIndex, maxColumnIndex + 1, newChild));
+
+                        ulong? newChildColumnIndex = maxRowIndex == null ? null : (ulong?)(_childrenList.Where(x => x.Item1 == maxRowIndex).Count() + 1);
+
+                        _childrenList.Add((maxRowIndex == null ? (ulong)0 : (ulong)maxRowIndex, newChildColumnIndex == null ? 0 : (ulong)newChildColumnIndex, newChild));
                     }
                 }
             }
