@@ -265,7 +265,7 @@ namespace TagSuggestBoxTest
                             Canvas.SetTop(newChild, _maxRowHeightList.Sum() + ((double)maxRowIndex + 1) * _verticalItemSpacing);
                         }
 
-                        _childrenList.Add((maxRowIndex == null || _childrenList.Count ? (ulong)0 : (ulong)maxRowIndex + 1, 0, newChild));
+                        _childrenList.Add((maxRowIndex == null || _childrenList.Count == 0 ? (ulong)0 : (ulong)maxRowIndex + 1, 0, newChild));
                     }
                     //Add in this row
                     else
@@ -274,6 +274,17 @@ namespace TagSuggestBoxTest
                         {
                             _canvas.Height = _canvas.ActualHeight + _verticalItemSpacing + newChild.DesiredSize.Height;
                         }
+                        else
+                        {
+                            //Expand if width is greater than maximum
+                            if (newChild.DesiredSize.Height > (double)_maxRowHeightList[(int)maxRowIndex])
+                            {
+                                _canvas.Height = _canvas.ActualHeight + newChild.DesiredSize.Height - _maxRowHeightList[(int)maxRowIndex];
+                                _maxRowHeightList[(int)maxRowIndex] = newChild.DesiredSize.Height;
+                            }
+                        }
+
+
                         //Set left position
                         Canvas.SetLeft(newChild, maxRowIndex == null ? (double)_horizontalItemSpacing : (double)((_childrenList.Where(x => x.Item1 == maxRowIndex).Count() + 1) * _horizontalItemSpacing) + (double)_rowControlWidthList[(int)maxRowIndex]);
                         //Set top position, the position will be infected by the ChildrenVerticalAlignment
@@ -321,7 +332,7 @@ namespace TagSuggestBoxTest
 
                         ulong? newChildColumnIndex = maxRowIndex == null ? null : (ulong?)(_childrenList.Where(x => x.Item1 == maxRowIndex).Count() + 1);
 
-                        _childrenList.Add((maxRowIndex == null ? (ulong)0 : (ulong)maxRowIndex, newChildColumnIndex == null ? 0 : (ulong)newChildColumnIndex, newChild));
+                        _childrenList.Add((maxRowIndex == null || _childrenList.Count == 0 ? (ulong)0 : (ulong)maxRowIndex, newChildColumnIndex == null ? 0 : (ulong)newChildColumnIndex, newChild));
 
                         //Log item height and width
                         if (maxRowIndex == null)
