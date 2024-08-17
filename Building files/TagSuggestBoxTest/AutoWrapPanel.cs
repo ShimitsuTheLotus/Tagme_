@@ -261,22 +261,42 @@ namespace TagSuggestBoxTest
                 //The element is not more wide than the panel
                 else
                 {
+                    //Get index
                     ulong? maxRowIndex = _maxRowHeightList.Count() > 1 ? (ulong?)_maxRowHeightList.Count() - 1 : null;
-                    foreach (var item in _childrenList)
-                    {
-                        maxRowIndex = maxRowIndex > item.Item1 ? item.Item1 : maxRowIndex;
-                    }
-                    double lastRowElementLength = (double)_childrenList
-                        .Where(x => x.Item1 == maxRowIndex)
-                        .Sum(y => (decimal)y.Item3.DesiredSize.Width);
+                    //Get the width
+                    double lastRowElementLength =
+                        maxRowIndex == null
+                        ? 0
+                        : _rowControlWidthList[_rowControlWidthList.Count - 1] 
+                        + Math.Max(_childrenList.Where(x => x.Item1 == (ulong)maxRowIndex).Count() * _horizontalItemSpacing, 2 * _horizontalItemSpacing);
+                    //Add in next row
                     if (lastRowElementLength + newChild.DesiredSize.Width + _horizontalItemSpacing > _canvas.Width)
                     {
                         _canvas.Height += _verticalItemSpacing + newChild.DesiredSize.Height;
-                        _childrenList.Add((maxRowIndex + 1, 0, newChild));
+
+                        //Add item, the item will be added to a new row.
+                        //Log item height and width
+                        _maxRowHeightList.Add(newChild.DesiredSize.Height);
+                        _rowControlWidthList.Add(newChild.DesiredSize.Width);
+                        //Set left position
+                        Canvas.SetLeft(newChild, _horizontalItemSpacing);
+                        //Set top position, since the row have only 1 element, the ChildrenVerticalAlignment dosen't make any difference.
+                        if (maxRowIndex == null)
+                        {
+                            Canvas.SetTop(newChild, _verticalItemSpacing);
+                        }
+                        else
+                        {
+                            Canvas.SetTop(newChild, _maxRowHeightList.Sum() + ((ulong)maxRowIndex + 1) * _verticalItemSpacing);
+                        }
+
+                        _childrenList.Add((maxRowIndex == null ? (ulong)0 : (ulong)maxRowIndex + 1, 0, newChild));
                     }
+                    //Add in this eow
                     else
                     {
                         ulong maxColumnIndex = 0;
+
                         foreach (var item in _childrenList)
                         {
                             maxColumnIndex = maxColumnIndex> item.Item2 ? item.Item2 : maxColumnIndex;
