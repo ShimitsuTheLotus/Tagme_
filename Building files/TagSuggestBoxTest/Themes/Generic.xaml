@@ -54,4 +54,23 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style TargetType="local:AutoWrapPanel" >
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:AutoWrapPanel">
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
+                        <ScrollViewer>
+                            <Canvas x:Name="MainContainer"
+                                  Height="{TemplateBinding Height}"
+                                  Width="{TemplateBinding Width}"/>
+                        </ScrollViewer>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>

@@ -37,5 +37,11 @@ namespace TagSuggestBoxTest
                 SuggestBox.ItemsSource = list;
             }
         }
+
+        private void SuggestBox_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            HelperBlock.Text = WrapPanel.ActualWidth.ToString();
+            new Grid().Children.Clear();
+        }
     }
 }

@@ -9,8 +9,10 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <StackPanel>
-        <TextBlock  Text="TextBlock"/>
+        <TextBlock x:Name="HelperBlock" Text="TextBlock"/>
         <local:TagSuggestBox x:Name="SuggestBox" Header="Sample"
-                             TextChanged="TagSuggestBox_TextChanged"/>
+                             TextChanged="TagSuggestBox_TextChanged"
+                             SizeChanged="SuggestBox_SizeChanged"/>
+        <local:AutoWrapPanel x:Name="WrapPanel"/>
     </StackPanel>
 </Page>
