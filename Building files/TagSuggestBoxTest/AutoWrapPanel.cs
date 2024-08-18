@@ -34,8 +34,8 @@ namespace TagSuggestBoxTest
         /// </summary>
         private List<double> _rowControlWidthList = new List<double>();
 
-        private float _horizontalItemSpacing = 4;
-        private float _verticalItemSpacing = 4;
+        private float _horizontalItemSpacing = 10;
+        private float _verticalItemSpacing = 10;
 
         public enum _childrenVerticalAlignment
         {
@@ -262,7 +262,7 @@ namespace TagSuggestBoxTest
                         }
                         else
                         {
-                            Canvas.SetTop(newChild, _maxRowHeightList.Sum() + ((double)maxRowIndex + 1) * _verticalItemSpacing);
+                            Canvas.SetTop(newChild, _maxRowHeightList.Sum() - _maxRowHeightList[_maxRowHeightList.Count() - 1] + ((double)maxRowIndex + 2) * _verticalItemSpacing);
                         }
 
                         _childrenList.Add((maxRowIndex == null || _childrenList.Count == 0 ? (ulong)0 : (ulong)maxRowIndex + 1, 0, newChild));
@@ -280,6 +280,7 @@ namespace TagSuggestBoxTest
                             if (newChild.DesiredSize.Height > (double)_maxRowHeightList[(int)maxRowIndex])
                             {
                                 _canvas.Height = _canvas.ActualHeight + newChild.DesiredSize.Height - _maxRowHeightList[(int)maxRowIndex];
+                                //Update height
                                 _maxRowHeightList[(int)maxRowIndex] = newChild.DesiredSize.Height;
                             }
                         }
@@ -298,7 +299,7 @@ namespace TagSuggestBoxTest
                                     }
                                     else
                                     {
-                                        Canvas.SetTop(newChild, _maxRowHeightList.Sum() + ((double)maxRowIndex + 1) * _verticalItemSpacing);
+                                        Canvas.SetTop(newChild, _maxRowHeightList.Sum() - _maxRowHeightList[(int)maxRowIndex] + ((double)maxRowIndex + 1) * _verticalItemSpacing);
                                     }
                                 }
                                 break;
@@ -310,7 +311,7 @@ namespace TagSuggestBoxTest
                                     }
                                     else
                                     {
-                                        Canvas.SetTop(newChild, _maxRowHeightList.Sum() + ((double)maxRowIndex + 1) * _verticalItemSpacing 
+                                        Canvas.SetTop(newChild, _maxRowHeightList.Sum() - _maxRowHeightList[(int)maxRowIndex] + ((double)maxRowIndex + 1) * _verticalItemSpacing 
                                             + _maxRowHeightList[_maxRowHeightList.Count - 1] - newChild.DesiredSize.Height);
                                     }
                                 }
@@ -323,14 +324,14 @@ namespace TagSuggestBoxTest
                                     }
                                     else
                                     {
-                                        Canvas.SetTop(newChild, _maxRowHeightList.Sum() + ((double)maxRowIndex + 1) * _verticalItemSpacing
+                                        Canvas.SetTop(newChild, _maxRowHeightList.Sum() - _maxRowHeightList[(int)maxRowIndex] + ((double)maxRowIndex + 1) * _verticalItemSpacing
                                             + (ulong)0.5*(_maxRowHeightList[_maxRowHeightList.Count - 1] - newChild.DesiredSize.Height));
                                     }
                                 }
                                 break;
                         }
 
-                        ulong? newChildColumnIndex = maxRowIndex == null ? null : (ulong?)(_childrenList.Where(x => x.Item1 == maxRowIndex).Count() + 1);
+                        ulong? newChildColumnIndex = maxRowIndex == null ? null : (ulong?)(_childrenList.Where(x => x.Item1 == maxRowIndex).Count());
 
                         _childrenList.Add((maxRowIndex == null || _childrenList.Count == 0 ? (ulong)0 : (ulong)maxRowIndex, newChildColumnIndex == null ? 0 : (ulong)newChildColumnIndex, newChild));
 
@@ -342,11 +343,7 @@ namespace TagSuggestBoxTest
                         }
                         else
                         {
-                            _maxRowHeightList[_maxRowHeightList.Count() - 1]
-                                = _maxRowHeightList[_maxRowHeightList.Count() - 1] > newChild.DesiredSize.Height
-                                ? _maxRowHeightList[_maxRowHeightList.Count() - 1]
-                                : newChild.DesiredSize.Height;
-                            _rowControlWidthList[_maxRowHeightList.Count() - 1] = _rowControlWidthList[_maxRowHeightList.Count() - 1] + newChild.DesiredSize.Width;
+                            _rowControlWidthList[_maxRowHeightList.Count() - 1] += newChild.DesiredSize.Width;
                         }
                     }
                 }

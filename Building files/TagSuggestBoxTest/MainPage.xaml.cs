@@ -52,7 +52,7 @@ namespace TagSuggestBoxTest
             Button button = new Button
             {
                 Height = new Random().Next(20, 50),
-                Width = new Random().Next(50, 100),
+                Width = new Random().Next(100, 150),
                 Background = new SolidColorBrush(Windows.UI.Color.FromArgb(0xFF, 0x91, 0xCA, 0xE8)),
             };
 

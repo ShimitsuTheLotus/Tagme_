@@ -14,7 +14,7 @@
                              TextChanged="TagSuggestBox_TextChanged"
                              SizeChanged="SuggestBox_SizeChanged"/>
         <Button x:Name="TestButton" Content="Add" Click="TestButton_Click"/>
-        <local:AutoWrapPanel x:Name="WrapPanel" Background="Red"
+        <local:AutoWrapPanel x:Name="WrapPanel" Background="Lavender"
                              Height="2000"/>
     </StackPanel>
 </Page>
