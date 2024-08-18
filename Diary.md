@@ -76,3 +76,5 @@
 - I'm locked out by my Outlock account, I'm trying to get it back.
 ### Aug. 15 2024
 - Thanks Junjie Zhu... You're always my **SAVIOUR**...
+### Aug. 17 2024
+- The build of new control is in progress. There's some bugs, though.
