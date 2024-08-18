@@ -303,7 +303,7 @@ namespace TagSuggestBoxTest
                                     }
                                 }
                                 break;
-                            case _childrenVerticalAlignment.Bottom:
+                            case _childrenVerticalAlignment.Bottom://In fact, these childrens should be repositioned in case Bottom and Center
                                 {
                                     if (maxRowIndex == null)
                                     {
@@ -311,8 +311,20 @@ namespace TagSuggestBoxTest
                                     }
                                     else
                                     {
-                                        Canvas.SetTop(newChild, _maxRowHeightList.Sum() - _maxRowHeightList[(int)maxRowIndex] + ((double)maxRowIndex + 1) * _verticalItemSpacing 
-                                            + _maxRowHeightList[_maxRowHeightList.Count - 1] - newChild.DesiredSize.Height);
+                                        if (newChild.DesiredSize.Height <= _maxRowHeightList[(int)maxRowIndex])
+                                        {
+                                            Canvas.SetTop(newChild, _maxRowHeightList.Sum() - _maxRowHeightList[(int)maxRowIndex] + ((double)maxRowIndex + 1) * _verticalItemSpacing
+                                                + _maxRowHeightList[_maxRowHeightList.Count - 1] - newChild.DesiredSize.Height);
+                                        }
+                                        else
+                                        {
+                                            _maxRowHeightList[_maxRowHeightList.Count - 1] = newChild.DesiredSize.Height;
+                                            foreach (var item in _childrenList.Where(x => x.Item1 == (ulong)maxRowIndex))
+                                            {
+                                                Canvas.SetTop(item.Item3, _maxRowHeightList.Sum() - _maxRowHeightList[(int)maxRowIndex] + ((double)maxRowIndex + 1) * _verticalItemSpacing
+                                                    + _maxRowHeightList[_maxRowHeightList.Count - 1] - item.Item3.DesiredSize.Height);
+                                            }
+                                        }
                                     }
                                 }
                                 break;
@@ -324,8 +336,23 @@ namespace TagSuggestBoxTest
                                     }
                                     else
                                     {
-                                        Canvas.SetTop(newChild, _maxRowHeightList.Sum() - _maxRowHeightList[(int)maxRowIndex] + ((double)maxRowIndex + 1) * _verticalItemSpacing
-                                            + (ulong)0.5*(_maxRowHeightList[_maxRowHeightList.Count - 1] - newChild.DesiredSize.Height));
+                                        if (newChild.DesiredSize.Height <= _maxRowHeightList[(int)maxRowIndex])
+                                        {
+                                            Canvas.SetTop(newChild, _maxRowHeightList.Sum() - _maxRowHeightList[(int)maxRowIndex] + ((double)maxRowIndex + 1) * _verticalItemSpacing
+                                            + (double)0.5 * (_maxRowHeightList[_maxRowHeightList.Count - 1] - newChild.DesiredSize.Height));
+                                        }
+                                        else
+                                        {
+                                            _maxRowHeightList[_maxRowHeightList.Count - 1] = newChild.DesiredSize.Height;
+                                            foreach (var item in _childrenList.Where(x => x.Item1 == (ulong)maxRowIndex))
+                                            {
+                                                Canvas.SetTop(item.Item3, _maxRowHeightList.Sum() - _maxRowHeightList[(int)maxRowIndex] + ((double)maxRowIndex + 1) * _verticalItemSpacing
+                                                    + (double)0.5 * (_maxRowHeightList[_maxRowHeightList.Count - 1] - item.Item3.DesiredSize.Height));
+                                                UIElement uIElement = item.Item3 as UIElement;
+                                                Canvas.SetTop(item.Item3, 0);//the target UIElement won't be reached by using _childrenList
+                                            }
+
+                                        }
                                     }
                                 }
                                 break;
