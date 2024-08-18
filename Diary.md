@@ -78,3 +78,5 @@
 - Thanks Junjie Zhu... You're always my **SAVIOUR**...
 ### Aug. 17 2024
 - The build of new control is in progress. There's some bugs, though.
+- AutoWrapPanel can wrap and align at top now.
+![image](https://github.com/user-attachments/assets/36d30a12-ce16-4eb7-a9ca-30803ecea359)
