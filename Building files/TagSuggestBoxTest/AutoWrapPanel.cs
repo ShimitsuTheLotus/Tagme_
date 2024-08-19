@@ -387,14 +387,18 @@ namespace TagSuggestBoxTest
                             Canvas.SetLeft(item.Item3, (double)(_childrenList.Where(x => x.Item1 == item.Item1 && x.Item2 < item.Item2 && x != deletedChildMapping).Count() + 1) * _horizontalItemSpacing
                                 + (double)_childrenList.Where(x => x.Item1 == item.Item1 && x.Item2 < item.Item2 && x != deletedChildMapping).Sum(x => x.Item3.DesiredSize.Width));
                         }
-                        else
-                        {
-                            int i = 0;
-                        }
 
                         //update _maxRowHeightList and _rowControlWidthList
-                        _maxRowHeightList[item.Item1] = _childrenList.Where(x => x.Item1 == item.Item1 && x != deletedChildMapping).Count() > 0 ? _childrenList.Where(x => x.Item1 == item.Item1 && x != deletedChildMapping).Max(x => x.Item3.DesiredSize.Height) : 0;
-                        _rowControlWidthList[item.Item1] = _childrenList.Where(x => x.Item1 == item.Item1 && x != deletedChildMapping).Count() > 0 ? _childrenList.Where(x => x.Item1 == item.Item1 && x != deletedChildMapping).Sum(x => x.Item3.DesiredSize.Width) : 0;
+                        if (_childrenList.Where(x => x.Item1 == item.Item1 && x != deletedChildMapping).Count() > 0)
+                        {
+                            _maxRowHeightList[item.Item1] = _childrenList.Where(x => x.Item1 == item.Item1 && x != deletedChildMapping).Max(x => x.Item3.DesiredSize.Height);
+                            _rowControlWidthList[item.Item1] = _childrenList.Where(x => x.Item1 == item.Item1 && x != deletedChildMapping).Sum(x => x.Item3.DesiredSize.Width);
+                        }
+                        else
+                        {
+                            _maxRowHeightList.RemoveAt(item.Item1);
+                            _rowControlWidthList.RemoveAt(item.Item1);
+                        }
 
                         _childrenList[_childrenList.IndexOf(item)] = (item.Item1, item.Item2 - 1, item.Item3);
                     }
