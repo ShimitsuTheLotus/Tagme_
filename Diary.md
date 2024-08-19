@@ -77,6 +77,9 @@
 ### Aug. 15 2024
 - Thanks Junjie Zhu... You're always my **SAVIOUR**...
 ### Aug. 17 2024
-- The build of new control is in progress. There's some bugs, though.
+- The build of new control is in progress. There are some bugs, though.
 - AutoWrapPanel can wrap and align at top now.
 ![image](https://github.com/user-attachments/assets/36d30a12-ce16-4eb7-a9ca-30803ecea359)
+### Aut. 19 2024
+- Start making AutoWrapPanel can let children align at center. There are some bugs, though.
+![image](https://github.com/user-attachments/assets/4dd4f42d-f9d6-4087-89e0-1f87c173b02f)
