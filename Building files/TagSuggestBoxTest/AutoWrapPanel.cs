@@ -75,27 +75,36 @@ namespace TagSuggestBoxTest
             {
                 foreach (UIElement newChild in e.NewItems)
                 {
-                    _canvas.Children.Add(newChild);
-                    OnChildAdded(newChild);
+                    lock (_canvasLock)
+                    {
+                        _canvas.Children.Add(newChild);
+                        OnChildAdded(newChild);
+                    }
                 }
             }
             else if (e.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Remove)
             {
                 foreach (UIElement Child in e.OldItems)
                 {
-                    _canvas.Children.Remove(Child);
-                    OnChildRemoved(Child);
+                    lock (_canvasLock)
+                    {
+                        _canvas.Children.Remove(Child);
+                        OnChildRemoved(Child);
+                    }
+                    }
                 }
-            }
             else if (e.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Replace)
             {
                 int i = 0;
                 foreach (UIElement child in e.OldItems)
                 {
-                    _canvas.Children.Remove(child);
-                    _canvas.Children.Add(e.NewItems[i] as UIElement);
-                    OnChildReplaced(child);
-                    i++;
+                    lock (_canvasLock)
+                    {
+                        _canvas.Children.Remove(child);
+                        _canvas.Children.Add(e.NewItems[i] as UIElement);
+                        OnChildReplaced(child);
+                        i++;
+                    }
                 }
             }
         }
@@ -374,7 +383,7 @@ namespace TagSuggestBoxTest
         {
             if (child != null)
             {
-                
+                var item = _childrenList.Where(x=>x.Item3 == child).FirstOrDefault();
             }
         }
 

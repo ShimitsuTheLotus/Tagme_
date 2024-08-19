@@ -13,7 +13,10 @@
         <local:TagSuggestBox x:Name="SuggestBox" Header="Sample"
                              TextChanged="TagSuggestBox_TextChanged"
                              SizeChanged="SuggestBox_SizeChanged"/>
-        <Button x:Name="TestButton" Content="Add" Click="TestButton_Click"/>
+        <StackPanel Orientation="Horizontal">
+            <Button x:Name="TestButton" Content="Add" Click="TestButton_Click"/>
+            <Button x:Name="TestButton2" Content="Delete" Click="TestButton2_Click"/>
+        </StackPanel>
         <local:AutoWrapPanel x:Name="WrapPanel" Background="Lavender"
                              Height="2000" ChildrenVerticalAlignment="Bottom"/>
     </StackPanel>
