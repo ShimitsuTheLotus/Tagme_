@@ -15,6 +15,6 @@
                              SizeChanged="SuggestBox_SizeChanged"/>
         <Button x:Name="TestButton" Content="Add" Click="TestButton_Click"/>
         <local:AutoWrapPanel x:Name="WrapPanel" Background="Lavender"
-                             Height="2000" ChildrenVerticalAlignment="Center"/>
+                             Height="2000" ChildrenVerticalAlignment="Bottom"/>
     </StackPanel>
 </Page>

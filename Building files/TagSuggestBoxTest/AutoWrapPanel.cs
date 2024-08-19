@@ -270,6 +270,7 @@ namespace TagSuggestBoxTest
                     //Add in this row
                     else
                     {
+                        List<double> historyMaxRowHeight = _maxRowHeightList.Where(x=>true).ToList();
                         if (maxRowIndex == null)
                         {
                             _canvas.Height = _canvas.ActualHeight + _verticalItemSpacing + newChild.DesiredSize.Height;
@@ -311,7 +312,7 @@ namespace TagSuggestBoxTest
                                     }
                                     else
                                     {
-                                        if (newChild.DesiredSize.Height <= _maxRowHeightList[(int)maxRowIndex])
+                                        if (newChild.DesiredSize.Height <= historyMaxRowHeight[(int)maxRowIndex])
                                         {
                                             Canvas.SetTop(newChild, _maxRowHeightList.Sum() - _maxRowHeightList[(int)maxRowIndex] + ((double)maxRowIndex + 1) * _verticalItemSpacing
                                                 + _maxRowHeightList[_maxRowHeightList.Count - 1] - newChild.DesiredSize.Height);
@@ -324,6 +325,8 @@ namespace TagSuggestBoxTest
                                                 Canvas.SetTop(item.Item3, _maxRowHeightList.Sum() - _maxRowHeightList[(int)maxRowIndex] + ((double)maxRowIndex + 1) * _verticalItemSpacing
                                                     + _maxRowHeightList[_maxRowHeightList.Count - 1] - item.Item3.DesiredSize.Height);
                                             }
+                                            Canvas.SetTop(newChild, _maxRowHeightList.Sum() - _maxRowHeightList[(int)maxRowIndex] + ((double)maxRowIndex + 1) * _verticalItemSpacing
+                                                + _maxRowHeightList[_maxRowHeightList.Count - 1] - newChild.DesiredSize.Height);
                                         }
                                     }
                                 }
@@ -336,7 +339,7 @@ namespace TagSuggestBoxTest
                                     }
                                     else
                                     {
-                                        if (newChild.DesiredSize.Height <= _maxRowHeightList[(int)maxRowIndex])
+                                        if (newChild.DesiredSize.Height <= historyMaxRowHeight[(int)maxRowIndex])
                                         {
                                             Canvas.SetTop(newChild, _maxRowHeightList.Sum() - _maxRowHeightList[(int)maxRowIndex] + ((double)maxRowIndex + 1) * _verticalItemSpacing
                                             + (double)0.5 * (_maxRowHeightList[_maxRowHeightList.Count - 1] - newChild.DesiredSize.Height));
@@ -344,14 +347,14 @@ namespace TagSuggestBoxTest
                                         else
                                         {
                                             _maxRowHeightList[_maxRowHeightList.Count - 1] = newChild.DesiredSize.Height;
-                                            foreach (var item in _childrenList.Where(x => x.Item1 == (ulong)maxRowIndex))
+                                            ulong targetRowIndex = (ulong)maxRowIndex;//For easier implantation, make it can update any row of UIElements
+                                            foreach (var item in _childrenList.Where(x => x.Item1 == targetRowIndex))
                                             {
                                                 Canvas.SetTop(item.Item3, _maxRowHeightList.Sum() - _maxRowHeightList[(int)maxRowIndex] + ((double)maxRowIndex + 1) * _verticalItemSpacing
                                                     + (double)0.5 * (_maxRowHeightList[_maxRowHeightList.Count - 1] - item.Item3.DesiredSize.Height));
-                                                UIElement uIElement = item.Item3 as UIElement;
-                                                Canvas.SetTop(item.Item3, 0);//the target UIElement won't be reached by using _childrenList
                                             }
-
+                                            Canvas.SetTop(newChild, _maxRowHeightList.Sum() - _maxRowHeightList[(int)maxRowIndex] + ((double)maxRowIndex + 1) * _verticalItemSpacing
+                                                + (double)0.5 * (_maxRowHeightList[_maxRowHeightList.Count - 1] - newChild.DesiredSize.Height));
                                         }
                                     }
                                 }
