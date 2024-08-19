@@ -24,7 +24,7 @@ namespace TagSuggestBoxTest
         /// <summary>
         /// row index, column index, element
         /// </summary>
-        private List<(ulong,ulong,UIElement)> _childrenList = new List<(ulong, ulong, UIElement)>();
+        private List<(int,int,UIElement)> _childrenList = new List<(int, int, UIElement)>();
         /// <summary>
         /// List index as row index, height
         /// </summary>
@@ -75,36 +75,28 @@ namespace TagSuggestBoxTest
             {
                 foreach (UIElement newChild in e.NewItems)
                 {
-                    lock (_canvasLock)
-                    {
-                        _canvas.Children.Add(newChild);
-                        OnChildAdded(newChild);
-                    }
+                    _canvas.Children.Add(newChild);
+                    OnChildAdded(newChild);
                 }
             }
             else if (e.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Remove)
             {
                 foreach (UIElement Child in e.OldItems)
                 {
-                    lock (_canvasLock)
-                    {
-                        _canvas.Children.Remove(Child);
-                        OnChildRemoved(Child);
-                    }
-                    }
+                    _canvas.Children.Remove(Child);
+                    OnChildRemoved(Child);
                 }
+            }
             else if (e.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Replace)
             {
                 int i = 0;
                 foreach (UIElement child in e.OldItems)
                 {
-                    lock (_canvasLock)
-                    {
-                        _canvas.Children.Remove(child);
-                        _canvas.Children.Add(e.NewItems[i] as UIElement);
-                        OnChildReplaced(child);
-                        i++;
-                    }
+
+                    _canvas.Children.Remove(child);
+                    _canvas.Children.Add(e.NewItems[i] as UIElement);
+                    OnChildReplaced(child);
+                    i++;
                 }
             }
         }
@@ -220,7 +212,7 @@ namespace TagSuggestBoxTest
                     _canvas.Height = _canvas.ActualHeight + newChild.DesiredSize.Height + _verticalItemSpacing;
 
                     //Get row index
-                    ulong? maxRowIndex = _maxRowHeightList.Count() > 1 ? (ulong?)_maxRowHeightList.Count() - 1 : null;
+                    int? maxRowIndex = _maxRowHeightList.Count() > 1 ? (int?)_maxRowHeightList.Count() - 1 : null;
 
 
                     //Add item, the item will be added to a new row.
@@ -240,19 +232,19 @@ namespace TagSuggestBoxTest
                     }
 
                     //Add item
-                    _childrenList.Add((maxRowIndex == null || _childrenList.Count == 0 ? (ulong)0 : (ulong)maxRowIndex + 1, 0, newChild));
+                    _childrenList.Add((maxRowIndex == null || _childrenList.Count == 0 ? 0 : (int)maxRowIndex + 1, 0, newChild));
                 }
                 //The element is not more wide than the panel
                 else
                 {
                     //Get index
-                    ulong? maxRowIndex = _maxRowHeightList.Count() > 0 ? (ulong?)_maxRowHeightList.Count() - 1 : null;
+                    int? maxRowIndex = _maxRowHeightList.Count() > 0 ? (int?)_maxRowHeightList.Count() - 1 : null;
                     //Get width
                     double lastRowElementLength =
                         maxRowIndex == null
                         ? 0
                         : _rowControlWidthList[_rowControlWidthList.Count - 1] 
-                        + Math.Max(_childrenList.Where(x => x.Item1 == (ulong)maxRowIndex).Count() * _horizontalItemSpacing, 2 * _horizontalItemSpacing);
+                        + Math.Max(_childrenList.Where(x => x.Item1 == maxRowIndex).Count() * _horizontalItemSpacing, 2 * _horizontalItemSpacing);
                     //Add in next row
                     if (lastRowElementLength + newChild.DesiredSize.Width + _horizontalItemSpacing > _canvas.ActualWidth)
                     {
@@ -274,7 +266,7 @@ namespace TagSuggestBoxTest
                             Canvas.SetTop(newChild, _maxRowHeightList.Sum() - _maxRowHeightList[_maxRowHeightList.Count() - 1] + ((double)maxRowIndex + 2) * _verticalItemSpacing);
                         }
 
-                        _childrenList.Add((maxRowIndex == null || _childrenList.Count == 0 ? (ulong)0 : (ulong)maxRowIndex + 1, 0, newChild));
+                        _childrenList.Add((maxRowIndex == null || _childrenList.Count == 0 ? 0 : (int)maxRowIndex + 1, 0, newChild));
                     }
                     //Add in this row
                     else
@@ -324,7 +316,7 @@ namespace TagSuggestBoxTest
                                         if (newChild.DesiredSize.Height > historyMaxRowHeight[(int)maxRowIndex])
                                         {
                                             _maxRowHeightList[_maxRowHeightList.Count - 1] = newChild.DesiredSize.Height;
-                                            foreach (var item in _childrenList.Where(x => x.Item1 == (ulong)maxRowIndex))
+                                            foreach (var item in _childrenList.Where(x => x.Item1 == (int)maxRowIndex))
                                             {
                                                 Canvas.SetTop(item.Item3, _maxRowHeightList.Sum() - _maxRowHeightList[(int)maxRowIndex] + ((double)maxRowIndex + 1) * _verticalItemSpacing
                                                     + _maxRowHeightList[_maxRowHeightList.Count - 1] - item.Item3.DesiredSize.Height);
@@ -346,7 +338,7 @@ namespace TagSuggestBoxTest
                                         if (newChild.DesiredSize.Height > historyMaxRowHeight[(int)maxRowIndex])
                                         {
                                             _maxRowHeightList[_maxRowHeightList.Count - 1] = newChild.DesiredSize.Height;
-                                            ulong targetRowIndex = (ulong)maxRowIndex;//For easier implantation, make it can update any row of UIElements
+                                            int targetRowIndex = (int)maxRowIndex;//For easier implantation, make it can update any row of UIElements
                                             foreach (var item in _childrenList.Where(x => x.Item1 == targetRowIndex))
                                             {
                                                 Canvas.SetTop(item.Item3, _maxRowHeightList.Sum() - _maxRowHeightList[(int)maxRowIndex] + ((double)maxRowIndex + 1) * _verticalItemSpacing
@@ -360,9 +352,9 @@ namespace TagSuggestBoxTest
                                 break;
                         }
 
-                        ulong? newChildColumnIndex = maxRowIndex == null ? null : (ulong?)(_childrenList.Where(x => x.Item1 == maxRowIndex).Count());
+                        int? newChildColumnIndex = maxRowIndex == null ? null : (int?)(_childrenList.Where(x => x.Item1 == maxRowIndex).Count());
 
-                        _childrenList.Add((maxRowIndex == null || _childrenList.Count == 0 ? (ulong)0 : (ulong)maxRowIndex, newChildColumnIndex == null ? 0 : (ulong)newChildColumnIndex, newChild));
+                        _childrenList.Add((maxRowIndex == null || _childrenList.Count == 0 ? 0 : (int)maxRowIndex, newChildColumnIndex == null ? 0 : (int)newChildColumnIndex, newChild));
 
                         //Log item height and width
                         if (maxRowIndex == null)
@@ -383,7 +375,35 @@ namespace TagSuggestBoxTest
         {
             if (child != null)
             {
-                var item = _childrenList.Where(x=>x.Item3 == child).FirstOrDefault();
+                var deletedChildMapping = _childrenList.Where(x => x.Item3 == child).FirstOrDefault();
+                var childrenList = _childrenList.Where(x => true).ToList();
+                foreach (var item in childrenList.Where(x => (x.Item1 == deletedChildMapping.Item1 && x.Item2 >= deletedChildMapping.Item2) || x.Item1 > deletedChildMapping.Item1))
+                {
+                    //Item was at the same row with deleted item
+                    if (item.Item1 == deletedChildMapping.Item1)
+                    {
+                        if (item != deletedChildMapping)
+                        {
+                            Canvas.SetLeft(item.Item3, (double)(_childrenList.Where(x => x.Item1 == item.Item1 && x.Item2 < item.Item2 && x != deletedChildMapping).Count() + 1) * _horizontalItemSpacing
+                                + (double)_childrenList.Where(x => x.Item1 == item.Item1 && x.Item2 < item.Item2 && x != deletedChildMapping).Sum(x => x.Item3.DesiredSize.Width));
+                        }
+                        else
+                        {
+                            int i = 0;
+                        }
+
+                        //update _maxRowHeightList and _rowControlWidthList
+                        _maxRowHeightList[item.Item1] = _childrenList.Where(x => x.Item1 == item.Item1 && x != deletedChildMapping).Count() > 0 ? _childrenList.Where(x => x.Item1 == item.Item1 && x != deletedChildMapping).Max(x => x.Item3.DesiredSize.Height) : 0;
+                        _rowControlWidthList[item.Item1] = _childrenList.Where(x => x.Item1 == item.Item1 && x != deletedChildMapping).Count() > 0 ? _childrenList.Where(x => x.Item1 == item.Item1 && x != deletedChildMapping).Sum(x => x.Item3.DesiredSize.Width) : 0;
+
+                        _childrenList[_childrenList.IndexOf(item)] = (item.Item1, item.Item2 - 1, item.Item3);
+                    }
+                    //update maxrowindex
+
+
+                }
+                //Remove target element in the list
+                _childrenList.Remove(_childrenList.Where(x => x.Item3 == child).FirstOrDefault());//Interstingly, using deletedChildMapping won't delete any target in the List.
             }
         }
 

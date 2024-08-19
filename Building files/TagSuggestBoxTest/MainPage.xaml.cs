@@ -61,9 +61,9 @@ namespace TagSuggestBoxTest
 
         private void TestButton2_Click(object sender, RoutedEventArgs e)
         {
-            if (WrapPanel.Children.Count > 0 && WrapPanel.Children[Math.Min(3, WrapPanel.Children.Count - 1)] != null)
+            if (WrapPanel.Children.Count > 0 && WrapPanel.Children[Math.Min(2, WrapPanel.Children.Count - 1)] != null)
             {
-                WrapPanel.Children.Remove(WrapPanel.Children[Math.Min(3, WrapPanel.Children.Count - 1)]);
+                WrapPanel.Children.Remove(WrapPanel.Children[Math.Min(2, WrapPanel.Children.Count - 1)]);
             }
         }
     }
