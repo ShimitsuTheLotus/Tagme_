@@ -83,3 +83,5 @@
 ### Aut. 19 2024
 - Start making AutoWrapPanel can let children align at center. There are some bugs, though.
 ![image](https://github.com/user-attachments/assets/4dd4f42d-f9d6-4087-89e0-1f87c173b02f)
+- Bug fixed, just perfect.
+![image](https://github.com/user-attachments/assets/c206494d-1adb-496e-a3f3-c766c4620914)
