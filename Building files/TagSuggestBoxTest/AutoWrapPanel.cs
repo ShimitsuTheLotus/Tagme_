@@ -204,7 +204,7 @@ namespace TagSuggestBoxTest
                 newChild.Measure(new Windows.Foundation.Size(double.PositiveInfinity, double.PositiveInfinity));
                 _canvas.Measure(new Windows.Foundation.Size(double.PositiveInfinity, double.PositiveInfinity));
                 //Expand the width of the panel if a single control desire width more than the panel.
-                if (newChild.DesiredSize.Width + 2 * _horizontalItemSpacing >= _canvas.ActualWidth)
+                if (newChild.DesiredSize.Width + 2* _horizontalItemSpacing > _canvas.ActualWidth)
                 {
                     //Expand width, 2* since there's space at the control's left and right.
                     _canvas.Width = _canvas.ActualWidth + newChild.DesiredSize.Width + 2 * _horizontalItemSpacing;
@@ -274,7 +274,7 @@ namespace TagSuggestBoxTest
                         List<double> historyMaxRowHeight = _maxRowHeightList.Where(x=>true).ToList();
                         if (maxRowIndex == null)
                         {
-                            _canvas.Height = _canvas.ActualHeight + _verticalItemSpacing + newChild.DesiredSize.Height;
+                            _canvas.Height = newChild.DesiredSize.Height + 2 * _verticalItemSpacing;
                         }
                         else
                         {

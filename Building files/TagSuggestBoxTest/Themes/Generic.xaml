@@ -66,7 +66,8 @@
                         <ScrollViewer>
                             <Canvas x:Name="MainContainer"
                                   Height="{TemplateBinding Height}"
-                                  Width="{TemplateBinding Width}"/>
+                                  Width="{TemplateBinding Width}">
+                            </Canvas>
                         </ScrollViewer>
                     </Border>
                 </ControlTemplate>
