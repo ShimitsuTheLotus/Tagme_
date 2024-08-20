@@ -414,7 +414,7 @@ namespace TagSuggestBoxTest
                     {
                         if (item != deletedChildMapping)
                         {
-                            Canvas.SetLeft(item.Item3, (double)(_childrenList.Where(x => x.Item1 == item.Item1 && x.Item2 < item.Item2 && x != deletedChildMapping).Count()) * _horizontalItemSpacing
+                            Canvas.SetLeft(item.Item3, (double)_childrenList.Where(x => x.Item1 == item.Item1 && x.Item2 < item.Item2 && x != deletedChildMapping).Count() * _horizontalItemSpacing
                                 + (double)_childrenList.Where(x => x.Item1 == item.Item1 && x.Item2 < item.Item2 && x != deletedChildMapping).Sum(x => x.Item3.DesiredSize.Width));
                         }
 
