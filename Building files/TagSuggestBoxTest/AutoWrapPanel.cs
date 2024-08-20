@@ -376,7 +376,37 @@ namespace TagSuggestBoxTest
             if (child != null)
             {
                 var deletedChildMapping = _childrenList.Where(x => x.Item3 == child).FirstOrDefault();
-                var childrenList = _childrenList.Where(x => true).ToList();
+                var childrenList = _childrenList.Where(x => true).ToList();//Do not replace it with _childrenList
+                int operationLineIndex = deletedChildMapping.Item1;
+                //Reset the height of the row of the deleted item
+                if (childrenList.Where(x => x.Item1 == deletedChildMapping.Item1).Count() > 0)
+                {
+                    _maxRowHeightList[deletedChildMapping.Item1] = childrenList.Where(x => x.Item1 == deletedChildMapping.Item1).Max(x => x.Item3.DesiredSize.Height);
+                    foreach (var item in childrenList.Where(x => x.Item1 == deletedChildMapping.Item1))
+                    {
+                        switch (ChildrenVerticalAlignment)
+                        {
+                            case _childrenVerticalAlignment.Top:
+                                {
+                                    Canvas.SetTop(item.Item3, _maxRowHeightList.Sum() - _maxRowHeightList[(int)item.Item1] + ((double)item.Item1 + 1) * _verticalItemSpacing);
+                                }
+                                break;
+                            case _childrenVerticalAlignment.Bottom://In fact, these childrens should be repositioned in case Bottom and Center
+                                {
+                                    Canvas.SetTop(item.Item3, _maxRowHeightList.Sum() - _maxRowHeightList[(int)item.Item1] + ((double)item.Item1 + 1) * _verticalItemSpacing
+                                        + _maxRowHeightList[_maxRowHeightList.Count - 1] - item.Item3.DesiredSize.Height);
+                                }
+                                break;
+                            case _childrenVerticalAlignment.Center:
+                                {
+                                    Canvas.SetTop(item.Item3, _maxRowHeightList.Sum() - _maxRowHeightList[(int)item.Item1] + ((double)item.Item1 + 1) * _verticalItemSpacing
+                                        + (double)0.5 * (_maxRowHeightList[_maxRowHeightList.Count - 1] - item.Item3.DesiredSize.Height));
+                                }
+                                break;
+                        }
+                    }
+                }
+                //The items needed to be adjusted
                 foreach (var item in childrenList.Where(x => (x.Item1 == deletedChildMapping.Item1 && x.Item2 >= deletedChildMapping.Item2) || x.Item1 > deletedChildMapping.Item1))
                 {
                     //Item was at the same row with deleted item
@@ -384,7 +414,7 @@ namespace TagSuggestBoxTest
                     {
                         if (item != deletedChildMapping)
                         {
-                            Canvas.SetLeft(item.Item3, (double)(_childrenList.Where(x => x.Item1 == item.Item1 && x.Item2 < item.Item2 && x != deletedChildMapping).Count() + 1) * _horizontalItemSpacing
+                            Canvas.SetLeft(item.Item3, (double)(_childrenList.Where(x => x.Item1 == item.Item1 && x.Item2 < item.Item2 && x != deletedChildMapping).Count()) * _horizontalItemSpacing
                                 + (double)_childrenList.Where(x => x.Item1 == item.Item1 && x.Item2 < item.Item2 && x != deletedChildMapping).Sum(x => x.Item3.DesiredSize.Width));
                         }
 
@@ -402,10 +432,123 @@ namespace TagSuggestBoxTest
 
                         _childrenList[_childrenList.IndexOf(item)] = (item.Item1, item.Item2 - 1, item.Item3);
                     }
-                    //update maxrowindex
+                    //Not in the same line
+                    else
+                    {
+                        operationLineIndex = item.Item1;
+                        //The item will be moved to previous row
+                        if (item.Item3.DesiredSize.Width + _rowControlWidthList[operationLineIndex - 1]
+                            + Math.Min(1, _childrenList.Where(x => x.Item1 == operationLineIndex).Count()) * _horizontalItemSpacing 
+                            <= _canvas.ActualWidth)
+                        {
+                            //Move item to previous row
+                            _childrenList[_childrenList.IndexOf(item)] = (item.Item1 - 1, _childrenList.Where(x => x.Item1 == item.Item1 - 1).Count(), item.Item3);
+                            Canvas.SetLeft(item.Item3, Math.Min(1, _childrenList.Where(x => x.Item1 == operationLineIndex).Count()) * _horizontalItemSpacing);
+                            //Set row height
+                            //Higher than target row
+                            if (item.Item3.DesiredSize.Height > _maxRowHeightList[item.Item1 - 1])
+                            {
+                                _maxRowHeightList[item.Item1 - 1] = _childrenList.Where(x => x.Item1 == item.Item1 - 1).Max(x => x.Item3.DesiredSize.Height);
+                                _maxRowHeightList[item.Item1] = _childrenList.Where(x => x.Item1 == item.Item1).Max(x => x.Item3.DesiredSize.Height);
+                                
+                                switch(ChildrenVerticalAlignment)
+                                {
+                                    case _childrenVerticalAlignment.Top:
+                                        {
+                                            foreach (var t in _childrenList.Where(x => x.Item1 == item.Item1))
+                                            {
+                                                Canvas.SetTop(t.Item3, _maxRowHeightList.Sum() - _maxRowHeightList[(int)operationLineIndex] + ((double)operationLineIndex + 1) * _verticalItemSpacing);
+                                            }
+                                        }
+                                        break;
+                                    case _childrenVerticalAlignment.Bottom:
+                                        {
+                                            foreach (var t in _childrenList.Where(x => x.Item1 == item.Item1))
+                                            {
+                                                Canvas.SetTop(t.Item3, _maxRowHeightList.Sum() - _maxRowHeightList[(int)operationLineIndex] + ((double)operationLineIndex + 1) * _verticalItemSpacing
+                                                    + _maxRowHeightList[_maxRowHeightList.Count - 1] - t.Item3.DesiredSize.Height);
+                                            }
+                                        }
+                                        break;
+                                    case _childrenVerticalAlignment.Center:
+                                        {
+                                            foreach (var t in _childrenList.Where(x => x.Item1 == item.Item1))
+                                            {
+                                                Canvas.SetTop(t.Item3, _maxRowHeightList.Sum() - _maxRowHeightList[(int)operationLineIndex] + ((double)operationLineIndex + 1) * _verticalItemSpacing
+                                                    + (double)0.5 * (_maxRowHeightList[_maxRowHeightList.Count - 1] - t.Item3.DesiredSize.Height));
+                                            }
+                                        }
+                                        break;
+                                }
+                            }
+                            //Not higher than target row
+                            else
+                            {
+                                //Update height of the original row
+                                if (item.Item3.DesiredSize.Height == _maxRowHeightList[item.Item1])
+                                {
+                                    double? h = childrenList.Where(x => x.Item1 == item.Item1).Max(x => x.Item3.DesiredSize.Height);
+                                    if (h != null)
+                                    {
+                                        _maxRowHeightList[item.Item1] = (double)h;
+                                    }
+                                }
+                                switch (ChildrenVerticalAlignment)
+                                {
+                                    case _childrenVerticalAlignment.Top:
+                                        {
+                                            Canvas.SetTop(item.Item3, _maxRowHeightList.Sum() - _maxRowHeightList[(int)operationLineIndex] + ((double)operationLineIndex + 1) * _verticalItemSpacing);
+                                        }
+                                        break;
+                                    case _childrenVerticalAlignment.Bottom:
+                                        {
+                                            Canvas.SetTop(item.Item3, _maxRowHeightList.Sum() - _maxRowHeightList[(int)operationLineIndex] + ((double)operationLineIndex + 1) * _verticalItemSpacing
+                                                + _maxRowHeightList[_maxRowHeightList.Count - 1] - item.Item3.DesiredSize.Height);
+                                        }
+                                        break;
+                                    case _childrenVerticalAlignment.Center:
+                                        {
+                                            Canvas.SetTop(item.Item3, _maxRowHeightList.Sum() - _maxRowHeightList[(int)operationLineIndex] + ((double)operationLineIndex + 1) * _verticalItemSpacing
+                                                + (double)0.5 * (_maxRowHeightList[_maxRowHeightList.Count - 1] - item.Item3.DesiredSize.Height));
+                                        }
+                                        break;
+                                }
+                            }
+                        }
+                        //The item won't be moved to previous row
+                        else
+                        {
+                            //At the first of the row
+                            if (item.Item1 > 0 && item.Item2 == _childrenList.Where(x => x.Item1 == item.Item1).Min(x => x.Item2))
+                            {
+                                Canvas.SetLeft(item.Item3, _horizontalItemSpacing);
 
-
+                                _maxRowHeightList[item.Item1] = _childrenList.Where(x => x.Item1 == item.Item1).Max(x => x.Item3.DesiredSize.Height);
+                            }
+                            else
+                            {
+                                if (_childrenList.Where(x => x.Item1 == item.Item1 && x.Item2 < item.Item2).Count() < item.Item2 - 1)
+                                {
+                                    Canvas.SetLeft(item.Item3, (double)(_childrenList.Where(x => x.Item1 == item.Item1 && x.Item2 < item.Item2).Count() + 1) * _horizontalItemSpacing
+                                        + (double)_childrenList.Where(x => x.Item1 == item.Item1 && x.Item2 < item.Item2).Sum(x => x.Item3.DesiredSize.Width));
+                                    _childrenList[_childrenList.IndexOf(item)] = (item.Item1, item.Item2 - 1, item.Item3);
+                                }
+                            }
+                        }
+                    }
                 }
+                //Delete data of empty rows
+                int maxRowIndex = _childrenList.Max(x => x.Item2);
+                var maxRowHeightList = _maxRowHeightList.Where(x => true).ToList();
+                foreach (var i in maxRowHeightList)
+                {
+                    if (_maxRowHeightList.IndexOf(i) > maxRowIndex)
+                    {
+                        _maxRowHeightList.Remove(i);
+                    }
+                }
+
+                _canvas.Height = _maxRowHeightList.Sum() + (Math.Min(_childrenList.Count(), 1) + 1) * _verticalItemSpacing;
                 //Remove target element in the list
                 _childrenList.Remove(_childrenList.Where(x => x.Item3 == child).FirstOrDefault());//Interstingly, using deletedChildMapping won't delete any target in the List.
             }
