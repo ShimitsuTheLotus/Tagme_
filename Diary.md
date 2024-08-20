@@ -80,8 +80,11 @@
 - The build of new control is in progress. There are some bugs, though.
 - AutoWrapPanel can wrap and align at top now.
 ![image](https://github.com/user-attachments/assets/36d30a12-ce16-4eb7-a9ca-30803ecea359)
-### Aut. 19 2024
+### Aug. 19 2024
 - Start making AutoWrapPanel can let children align at center. There are some bugs, though.
 ![image](https://github.com/user-attachments/assets/4dd4f42d-f9d6-4087-89e0-1f87c173b02f)
 - Bug fixed, just perfect.
 ![image](https://github.com/user-attachments/assets/c206494d-1adb-496e-a3f3-c766c4620914)
+### Aug. 20 2024
+- AutoWrapPanel can now work properly when deleted item isat the first row.
+- In the novel Journey to The West, Sun Wukong underwent 81 trials and tribulations. But while building Tagme_, I'll suffer 8,100 of that.
