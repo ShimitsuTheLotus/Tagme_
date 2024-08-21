@@ -8,6 +8,7 @@
 - Children
 ```cs
 //Children - AutoWrapPanel.cs
+
 public class AutoWrapPanel : Control
 {
     private ObservableCollection<UIElement> _children;
@@ -72,3 +73,6 @@ public class AutoWrapPanel : Control
 
 # Functions
 - Children.Add()
+```cs
+
+```
