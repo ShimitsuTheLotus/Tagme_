@@ -7,6 +7,7 @@
 - x:UID
 - Children
 ```cs
+//Children - AutoWrapPanel.cs
 public class AutoWrapPanel : Control
 {
     private ObservableCollection<UIElement> _children;
@@ -29,6 +30,9 @@ public class AutoWrapPanel : Control
             }
         }
     }
+
+    public ObservableCollection<UIElement> Children => _children;
+
     private void OnChildrenChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
     {
         if (_canvas == null)
@@ -66,5 +70,5 @@ public class AutoWrapPanel : Control
 }
 ```
 
-# Events
-- TextChanged
+# Functions
+- Children.Add()
