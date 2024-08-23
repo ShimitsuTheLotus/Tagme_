@@ -77,6 +77,12 @@ public class AutoWrapPanel : Control
   - Get newChild
       - if newChild is not null
           - Measure size of newChild
+          - If the width of newChild + 2 * horiozntal child space is more than the width of the canvas, expand the width of canvas
+              - Set the width of the canvas to the width of newChild + 2 * horiozntal child spaceing
+              - Add the height of the canvas with the height of newChild and vertical child spacing, since the item will be added to the next line
+                **There's a problem: what if the control is much wider than all controls? the control won't be reposited. NEEDS TO BE FIXED.**
+              - Update the height and the summary of the width of controls in the next line.
+              - 
 ```cs
 public class AutoWrapPanel : Control
 {
