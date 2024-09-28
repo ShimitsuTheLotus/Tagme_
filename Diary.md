@@ -89,3 +89,7 @@
 - AutoWrapPanel can now work properly when deleted item isat the first row.
 - In the novel Journey to The West, Sun Wukong underwent 81 trials and tribulations. But while building Tagme_, I'll suffer 8,100 of that.
 - **Things became strange after I added motion. The control won't work properly, so I removed that.**
+
+## September
+### Sept. 28 2024
+- Continuesly working on that control made me lazy, I'll pause working on this program and work on UI, the UI might be used on this app.
